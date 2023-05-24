@@ -78,8 +78,7 @@ while ($row=mysqli_fetch_array($ret)) {
 			</select>
 		</div>
 </td>
-<td><input type="checkbox" name="sids[]" value="<?php  echo $row['id'];?>" >
-	<input type="checkbox" name="sids[]" value="<?php  echo $total=$row['Cost'];?>" ></td> 
+<td><input type="checkbox" name="sids[]" value="<?php  echo $row['id'];?>"></td> 
 </tr>   
 <?php 
 if(isset($_POST["sids[]"])){
@@ -105,7 +104,7 @@ $cnt=$cnt+1;
 <tr>
 
 <td colspan="4" align="center">
-<button type="submit" name="next" class="btn btn-danger">Submit</button>		
+<button type="submit" name="submit" class="btn btn-danger">Submit</button>		
 </td>
 
 </tr>

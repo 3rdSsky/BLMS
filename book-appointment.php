@@ -83,7 +83,7 @@ $(function () {
                                 <th>Appointment Date</th>
                                 <th>Appointment Time</th>
                                 <th width="15%">Service Name</th>
-                                <th>Price</th>
+                                <th width="8%">Price</th>
                                 <th>Form of Payment</th>
                                 <th width="10%">Status</th>
                                 <th width="10%">Action</th>
@@ -103,7 +103,7 @@ $(function () {
                             <td><p> <?php echo $row['aptdate']?> </p></td> 
                             <td><?php echo $row['apttime']?></td>
                             <td><?php echo $row['servicename'];?></td>
-                            <td><?php echo $row['cost'];?></td>
+                            <td>₱ <?php echo $row['cost'];?></td>
                             <td><?php echo $row['payment'];?></td>  
                             <td><?php $status=$row['Status'];
                                 if($status==''){

@@ -113,7 +113,7 @@ while ($row=mysqli_fetch_array($ret)) {
 <th><?php echo $cnt;?></th>
 <td><?php echo $row['ServiceName']?></td>
 <td><?php echo $row['AssignServ']?></td>	
-<td><?php echo $subtotal=$row['Cost']?></td>
+<td>₱ <?php echo $subtotal=$row['Cost']?></td>
 </tr>
 <?php 
 $cnt=$cnt+1;
@@ -123,15 +123,15 @@ $payment = $row['Payment'];
 
 <tr>
 <th colspan="3" style="text-align:center">Grand Total</th>
-<th><?php echo $gtotal?></th>
+<th>₱ <?php echo $gtotal?></th>
 </tr>
 <tr>
 <th colspan="3" style="text-align:center">Payment</th>
-<th><?php echo $payment?></th>
+<th>₱ <?php echo $payment?></th>
 </tr>
 <tr>
 <th colspan="3" style="text-align:center">Change</th>
-<th><?php echo $payment - $gtotal?></th>
+<th>₱ <?php echo $payment - $gtotal?></th>
 </tr>
 
 </tr>

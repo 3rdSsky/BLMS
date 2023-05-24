@@ -21,6 +21,11 @@ if (strlen($_SESSION['bpmsuid']==0)) {
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Data table -->
+    <script src="asset/js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.2/datatables.min.css"/>
+    <!-- //Data Table -->
   </head>
   <body id="home">
     <?php include_once('includes/sidebar.php');?>

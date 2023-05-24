@@ -11072,6 +11072,11 @@ paragraphs */
   display: inline-flex!important;
 }
 
+.sign-cont input[type="number"]{
+  width: 30%!important;
+  display: inline-flex!important;
+}
+
 .sign-cont input[type="email"]{
   width: 30%!important;
   display: inline-flex!important;
@@ -11084,9 +11089,6 @@ paragraphs */
 
 .sign-cont label{
   padding-left: 100px;
-}
-
-.singup-lbl{
 }
 
 .signup-txt{
@@ -11176,7 +11178,7 @@ paragraphs */
 }
 
 .s-logo{
-  width: 100px;
+  width: 132px;
   height: 100px;
   margin-bottom: 20px;
 }
@@ -11306,3 +11308,8 @@ paragraphs */
 
 
 /* End of Package or Deals */
+
+/* Edit */
+
+
+/* End */

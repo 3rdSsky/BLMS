@@ -101,8 +101,8 @@ $(function () {
                             <td><?php  echo $row['servicename'];?></td>
                           </tr>
                           
-                            <th>Mobile Number</th>
-                            <td><?php  echo $row['cost'];?></td>
+                            <th>Price</th>
+                            <td>₱ <?php  echo $row['cost'];?></td>
                           </tr>
                            <tr>
                             <th>Appointment Date</th>
@@ -116,6 +116,7 @@ $(function () {
                           <tr>
                             <th>Form of Payment</th>
                             <td><?php  echo $row['payment'];?></td>
+                            <td><img src="receipt/<?php echo $row['Image']?>" alt="product" br /> </td>
                           </tr>
                           <tr>
                             <th><?php  
@@ -126,7 +127,9 @@ $(function () {
 
                                 if($row['payment']=="Online")
                                 {
-                                  echo $row['Image'];
+                                  ?>
+                                  <img src="receipt/<?php echo $row['Image']?>" alt="Image Receipt" height="200" width="400" class="img-responsive about-me">
+                                <?php
                                 }
                                 ;?>
                                </th>

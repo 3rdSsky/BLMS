@@ -105,7 +105,7 @@ return true;
                     <div class="signup-text">
                         <div class="signup-txt">
                             <label>Mobile Number</label>
-                            <input type="text" class="form-control" placeholder="Mobile Number" required="" name="mobilenumber" pattern="[0-9]+" maxlength="10">
+                            <input type="number" class="form-control" placeholder="Mobile Number" required="" name="mobilenumber" pattern="[0-9]+" maxlength="10">
                             <label class="singup-lbl">Email address</label>
                             <input type="email" class="form-control" placeholder="Email address" required="" name="email">
                         </div>

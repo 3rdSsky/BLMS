@@ -12,7 +12,7 @@ $sql=mysqli_query($con, $query);
        <button data-id='<?php echo $row['id']; ?>' class="Personal btn btn-danger">Onsite</button>
       </div>
 
- <form method="post" action="userservices.php?action=add&id=<?php echo $row["id"]; ?>">
+ <form method="post" action="userservices.php?action=add&id=<?php echo $row["id"]; ?>" enctype="multipart/form-data">
     <div style="padding-top: 10px;">
       <div class=""></div>
         <div class="alert alert-info" role="alert">

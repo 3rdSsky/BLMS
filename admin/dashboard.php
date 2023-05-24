@@ -230,9 +230,9 @@ endif;
 					<div class=" row-one">
 					<div class="dropdown">
   						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    					Dropdown</button>
+    					Custom</button>
   						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-						 <label for="exampleInputEmail1">Custom</label> 
+						 <label for="exampleInputEmail1"></label> 
 						 <input type="date" class="form-control1" name="fromdate" id="fromdate" value="" required='true'> 
   						</div>
 					</div>

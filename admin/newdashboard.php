@@ -23,7 +23,7 @@
       labels: ['Last 7 days','Last 28 days', 'Last 38 days', 'Last 90 days'],
       datasets: [{
         label: 'Sales',
-        data: [12],
+        data: [12, 2, 9, 10],
         borderWidth: 1
       }]
     },
