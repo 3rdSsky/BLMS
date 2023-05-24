@@ -71,7 +71,7 @@ $(function () {
 
             <div>
                 <div class="cont-details">
-                   <div class="table-content table-responsive cart-table-content m-t-30">
+                   <div class="table-content table-responsive cart-table-content m-t-30" id="exampl">
                     <h3 class="title1">Invoice Details</h3>
                     
     <?php
@@ -187,6 +187,17 @@ $payment = $row['Payment'];
 	}
 </script>
 <!-- /move top -->
+<script>
+function CallPrint(strid) {
+var prtContent = document.getElementById("exampl");
+var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+WinPrint.document.write(prtContent.innerHTML);
+WinPrint.document.close();
+WinPrint.focus();
+WinPrint.print();
+WinPrint.close();
+}
+</script>
 </body>
 
 </html><?php } ?>

@@ -137,7 +137,7 @@ $payment = $row['Payment'];
 </tr>
 </table>
   <p style="margin-top:1%"  align="center">
-  <i class="fa fa-print fa-2x" style="cursor: pointer;"  OnClick="CallPrint(this.value)" ></i>
+  	<i class="fa fa-print fa-2x" style="cursor: pointer;"  OnClick="CallPrint(this.value)" ></i>
 </p>
 
 					</div>
