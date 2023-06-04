@@ -93,7 +93,7 @@ $(function () {
                             <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" required="">
                         </div>
                         <div class="twice-two">
-                           <input type="text" class="form-control" placeholder="Phone" required="" name="phone" pattern="[0-9]+" maxlength="10">
+                           <input type="number" class="form-control" placeholder="Phone" required="" name="phone" pattern="[0-9]+" maxlength="10">
                             <input type="email" class="form-control" class="form-control" placeholder="Email" required="" name="email">
                         </div>
                         

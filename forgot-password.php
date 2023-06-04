@@ -97,21 +97,21 @@ return true;
         <h3 style="padding-bottom: 10px;">Reset your password and Fill below details</h3>
         <form method="post">
             <div>
-                <input type="text" class="form-control" name="email" placeholder="Enter Your Email" required="true">
+                <input type="text" class="form-control text-center" name="email" placeholder="Enter Your Email" required="true">
             </div>
             <div style="padding-top: 30px;">
-                <input type="text" class="form-control" name="contactno" placeholder="Contact Number" required="true" pattern="[0-9]+">
+                <input type="text" class="form-control text-center" name="contactno" placeholder="Contact Number" required="true" pattern="[0-9]+">
             </div>
             <div style="padding-top: 30px;">
-                <input type="password" class="form-control" id="newpassword" name="newpassword" placeholder="New Password">
+                <input type="password" class="form-control text-center" id="newpassword" name="newpassword" placeholder="New Password">
             </div>
             <div style="padding-top: 30px;">
-                <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password">
+                <input type="password" class="form-control text-center" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password">
             </div>
-            <div class="twice-two" style="padding-top: 30px;">
+            <div class="forget-sign twice-two" style="padding-top: 30px;">
                 <a class="link--gray" style="color: blue;" href="login.php">signin</a>
+                <button type="submit" class="forgot-res btn btn-danger" name="submit">Reset</button>
             </div>
-            <button type="submit" class="btn btn-contact" name="submit">Reset</button>
         </form>
     </div>
 </section>

@@ -168,6 +168,8 @@ else{
 								}
 							?>
 
+
+<!-- Sweet Alert -->
 <?php  if(isset($_SESSION['aptno']))
   {
     ?>
@@ -180,10 +182,13 @@ else{
             });
     </script>
 
+
 <?php
   unset($_SESSION['aptno']);
   }
   ?>
+
+<!-- End-->
 
 		<script type='text/javascript'>
             $(document).ready(function(){

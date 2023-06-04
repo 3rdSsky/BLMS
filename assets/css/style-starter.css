@@ -11106,6 +11106,20 @@ paragraphs */
   box-sizing: border-box;
 }
 
+.forget-sign{
+  margin:auto;
+  width: 200px!important;
+  height: 70px;
+  position: relative;
+}
+
+.forgot-res{
+  margin-left: 100px;
+  position: absolute;
+}
+
+.lock
+
 /* End of sections of text box*/
 
 
@@ -11298,6 +11312,7 @@ paragraphs */
   margin-left: 25%;
 }
 
+
 /* End of Customer Services */
 
 /* Start of Package or Deals */
@@ -11306,10 +11321,30 @@ paragraphs */
   font-family: 'Alkalami', serif;
 }
 
+.Booknow-ads{
+  width: 180px;
+  position: relative;
+  left: 15%;
+  right: 85%;
+  margin-bottom: 20px!important;
+  border-radius: 10%;
+}
 
+.custommerser-ads{
+  display: flex!important;
+  height: 430px!important;
+}
+
+.custommerser-ads img{
+  height: 200px;
+  width: 300px;
+  border-radius: 10%;
+}
+
+.custommerser-ads .card{
+  width: 300px!important;
+  height: 368px!important;
+  border-radius: 10%;
+}
 /* End of Package or Deals */
 
-/* Edit */
-
-
-/* End */

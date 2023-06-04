@@ -70,7 +70,11 @@ if(isset($_POST['submit']))
 							<h4>View Appointment:</h4>
 							<?php
 							$cid=$_GET['viewid'];
-							$ret=mysqli_query($con,"select tbluser.FirstName,tbluser.LastName,tbluser.Email,tbluser.MobileNumber,bkgtbl.id as bid,bkgtbl.aptnumber,bkgtbl.aptdate,bkgtbl.apttime,bkgtbl.servicename,bkgtbl.cost,bkgtbl.bookingDate,bkgtbl.Status from bkgtbl join tbluser on tbluser.ID=bkgtbl.userid where bkgtbl.id='$cid'");
+							$ret=mysqli_query($con,"select tbluser.FirstName,tbluser.LastName,tbluser.Email,
+							tbluser.MobileNumber,bkgtbl.id as bid,bkgtbl.aptnumber,bkgtbl.aptdate,bkgtbl.
+							apttime,bkgtbl.servicename,bkgtbl.cost,bkgtbl.bookingDate,bkgtbl.Status,bkgtbl.payment,
+							bkgtbl.Image from bkgtbl 
+							join tbluser on tbluser.ID=bkgtbl.userid where bkgtbl.id='$cid'");
 							$cnt=1;
 							while ($row=mysqli_fetch_array($ret)) {
 								?>
@@ -115,16 +119,20 @@ if(isset($_POST['submit']))
                             <td><?php  echo $row['payment'];?></td>
                           	</tr>
                           	<tr>
-                            	<th><?php  
-                                	if($row['payment']=="Onsite")
-                                	{
-                                  		echo "";
-                                	}
-                                	if($row['payment']=="Online")
-                                	{
-                                  		echo $row['image'];
-                                	}
-                                	;?>
+							  <td></td>
+                            <th><?php  
+                                if($row['payment']=="Onsite")
+                                {
+                                  echo "";
+                                }
+
+                                if($row['payment']=="Online")
+                                {
+                                  ?>
+                                  <img src="../receipt/<?php echo $row['Image']?>" alt="Image Receipt" height="180" width="350" class="img-responsive about-me">
+                                <?php
+                                }
+                                ;?>
                                </th>
                                 </tr>
 								<tr>

@@ -1559,7 +1559,7 @@ button.note-color-btn {
 .login-top  h4  a:hover{
     color: #555;
 }
-.login-page input[type="text"], .login-page input[type="password"] {
+.login-page input[type="text"], .login-page input[type="password"], .login-page input[type="number"]{
     font-size: 0.9em;
     padding: 10px 15px 10px 37px;
     width: 100%;

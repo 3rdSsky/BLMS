@@ -65,7 +65,7 @@
               <li>
               <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Reports<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level collapse">
-                 <li><a href="bwdates-reports-ds.php"> B/w dates</a></li>
+                 <li><a href="bwdates-reports-ds.php"> Between dates</a></li>
                    
                     <li><a href="sales-reports.php">Sales Reports</a></li>
               </ul>

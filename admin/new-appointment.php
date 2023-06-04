@@ -42,14 +42,20 @@ echo "<script>window.location.href='new-appointment.php'</script>";
 				
 					<div class="table-responsive bs-example widget-shadow">
 						<h4>New Appointment:</h4>
-						<table id="employee_data" class="main-table table table-bordered"> <thead> <tr> <th>#</th> <th> Appointment Number</th> <th>Name</th><th>Mobile Number</th> <th>Service Name</th><th>Cost</th> <th>Appointment Date</th><th>Appointment Time</th>
-							<th>Status</th><th>Action</th> </tr> </thead> <tbody>
+						<table id="employee_data" class="main-table table table-bordered"> <thead> <tr> <th>#</th> 
+						<th> Appointment Number</th> 
+						<th>Name</th><th>Mobile Number</th> 
+						<th>Service Name</th><th>Cost</th> 
+						<th>Appointment Date</th>
+						<th>Appointment Time</th>
+						<th>Form of Payment</th>
+						<th>Status</th><th>Action</th> </tr> </thead> <tbody>
 <?php
 
 $ret=mysqli_query($con,"SELECT blmsdb.bkgtbl.id AS 'bid', blmsdb.tbluser.LastName, blmsdb.tbluser.FirstName, 
                           blmsdb.bkgtbl.aptnumber, blmsdb.tbluser.MobileNumber, blmsdb.bkgtbl.servicename,
-                          blmsdb.bkgtbl.cost, blmsdb.bkgtbl.aptdate, blmsdb.bkgtbl.apttime FROM blmsdb.tbluser 
-                          RIGHT JOIN blmsdb.bkgtbl
+                          blmsdb.bkgtbl.cost, blmsdb.bkgtbl.aptdate, blmsdb.bkgtbl.apttime, blmsdb.bkgtbl.payment 
+						  FROM blmsdb.tbluser RIGHT JOIN blmsdb.bkgtbl
                           ON blmsdb.tbluser.ID = blmsdb.bkgtbl.userid
                           WHERE Status IS NULL");
 
@@ -58,7 +64,16 @@ while ($row=mysqli_fetch_array($ret)) {
 
 ?>
 
-						 <tr> <th scope="row"><?php echo $cnt;?></th> <td><?php  echo $row['aptnumber'];?></td> <td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td><td><?php  echo $row['MobileNumber'];?></td><td><?php  echo $row['servicename'];?></td> <td>₱ <?php  echo $row['cost'];?></td><td><?php  echo $row['aptdate'];?></td> <td><?php  echo $row['apttime'];?></td>
+						 <tr> <th scope="row"><?php echo $cnt;?></th> 
+						 <td><?php  echo $row['aptnumber'];?></td> 
+						 <td><?php  echo $row['FirstName'];?> 
+						 <?php  echo $row['LastName'];?></td><td>
+							<?php  echo $row['MobileNumber'];?></td>
+							<td><?php  echo $row['servicename'];?></td> 
+							<td>₱ <?php  echo $row['cost'];?></td><td>
+								<?php  echo $row['aptdate'];?></td> 
+								<td><?php  echo $row['apttime'];?></td>
+								<td><?php echo $row['payment'];?></td>
 						 	<?php if($row['Status']==""){ ?>
 
                      <td class="font-w600"><?php echo "Pending"; ?></td>

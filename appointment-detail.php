@@ -116,9 +116,9 @@ $(function () {
                           <tr>
                             <th>Form of Payment</th>
                             <td><?php  echo $row['payment'];?></td>
-                            <td><img src="receipt/<?php echo $row['Image']?>" alt="product" br /> </td>
                           </tr>
                           <tr>
+                            <td></td>
                             <th><?php  
                                 if($row['payment']=="Onsite")
                                 {
@@ -128,7 +128,7 @@ $(function () {
                                 if($row['payment']=="Online")
                                 {
                                   ?>
-                                  <img src="receipt/<?php echo $row['Image']?>" alt="Image Receipt" height="200" width="400" class="img-responsive about-me">
+                                  <img src="receipt/<?php echo $row['Image']?>" alt="Image Receipt" height="180" width="350" class="img-responsive about-me">
                                 <?php
                                 }
                                 ;?>

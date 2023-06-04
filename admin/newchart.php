@@ -9,18 +9,18 @@
 </head>
 <body>
 <div>
-  <canvas class="trychart" id="myChart"></canvas>
+  <canvas class="trychart" id="myChart2"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-  const ctx = document.getElementById('myChart');
+  const ctx1 = document.getElementById('myChart2');
 
-  new Chart(ctx, {
+  new Chart(ctx1, {
     type: 'bar',
     data: {
-      labels: ['Yesterday Sales','Last Sevendays', 'Total Sales'],
+      labels: ['Appointment','Accepted apt', 'Rejected apt'],
       datasets: [{
         label: 'Sales',
         data: [12, 2, 9, 10],

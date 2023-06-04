@@ -9,7 +9,7 @@ if($_GET['delid']){
 $sid=$_GET['delid'];
 mysqli_query($con,"delete from adstbl where ID ='$sid'");
 echo "<script>alert('Data Deleted');</script>";
-echo "<script>window.location.href='manage-ads.php'</script>";
+echo "<script>window.location.href='manage-pacakage.php'</script>";
           }
 
 

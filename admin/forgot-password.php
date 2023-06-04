@@ -70,7 +70,7 @@ if(isset($_POST['submit']))
   }  ?> </p>
 							<input type="text" name="email" class="lock" placeholder="Email" required="true">
 							
-							<input type="text" name="contactno" class="lock" placeholder="Mobile Number" required="true" maxlength="10" pattern="[0-9]+">
+							<input type="number" name="contactno" class="lock" placeholder="Mobile Number" required="true" maxlength="10" pattern="[0-9]+">
 							
 							<input type="submit" name="submit" value="Reset">
 							<div class="forgot-grid">

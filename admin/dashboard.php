@@ -14,6 +14,7 @@ if (strlen($_SESSION['bpmsaid']==0)) {
 <!--- Head Links --->
 <?php include_once('includes/headlinks.php');?>
 <!-- //Head Links --->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head> 
 <body class="cbp-spmenu-push">
@@ -88,6 +89,8 @@ $totalrejapt=mysqli_num_rows($query4);
 						</div>
 						<div class="clearfix"> </div>	
 					</div>
+					<!-- Sales-->
+					
 					<div class="col-md-4 widget states-mdl">
 						<?php $query5=mysqli_query($con,"Select * from  servicetry");
 $totalser=mysqli_num_rows($query5);
@@ -101,6 +104,8 @@ $totalser=mysqli_num_rows($query5);
 						</div>
 						<div class="clearfix"> </div>	
 					</div>
+					<!-- Sales
+
 					<div class="col-md-4 widget states-last">
 						<?php
 //todays sale
@@ -129,12 +134,14 @@ endif;
 						</div>
 						<div class="clearfix"> </div>	
 					</div>
-					<div class="clearfix"> </div>	
+					
+					<div class="clearfix"> </div>
+					-->	
 				</div>
 						
 					</div>
 
-				<div class="row calender widget-shadow">
+<!---				<div class="row calender widget-shadow">
 					<div class="row-one">
 					<div class="col-md-4 widget">
 						<?php
@@ -226,20 +233,70 @@ endif;
 						
 					</div>
 				</div>
+-->
 				<div class="custom-chart row calender widget-shadow">
 					<div class=" row-one">
 					<div class="dropdown">
   						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     					Custom</button>
+						<button>Customer</button>
   						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
 						 <label for="exampleInputEmail1"></label> 
 						 <input type="date" class="form-control1" name="fromdate" id="fromdate" value="" required='true'> 
   						</div>
 					</div>
+		<div>
+  			<canvas class="trychart" id="myChart"></canvas>
+		</div>
 
-						<?php include_once('newdashboard.php');?>
+		<script>
+  			const ctx = document.getElementById('myChart');
+  			new Chart(ctx, {
+    		type: 'line',
+    		data: {
+      		labels: ['Today Sales', 'Yesterday Sales','Last Sevendays', 'Total Sales'],
+      		datasets: [{
+        		label: 'Sales',
+        		data: [
+					<?php //Today Sales
+if($todysale==""):
+							echo "0";
+else:
+	echo $todysale;
+endif;
+						?>, 
+						<?php //Yesterday Sales 
+if($yesterdaysale==""):
+							echo "0";
+else:
+	echo $yesterdaysale;
+endif;
+						?>, <?php //Last Sevendays
+if($tseven==""):
+	echo "0";
+else:
+echo $tseven;
+endif;?>, 
+				<?php // Total Sales
+		if($totalsale==""):
+							echo "0";
+else:
+	echo $totalsale;
+endif;
+						?>],
+        		borderWidth: 1
+      		}]
+    		},
+    		options: {
+      		responsive: true,
+    		}
+  			});
+		</script>
 					</div>
 				</div>
+					</div>
+				</div>
+				
 				<div class="clearfix"> </div>
 			</div>
 		</div>

@@ -52,13 +52,16 @@ echo "<script>window.location.href='all-appointment.php'</script>";
 									<th>Cost</th>
 									<th>Appointment Date</th>
 									<th>Appointment Time</th>
+									<th>Form of Payment</th>
 									<th>Status</th>
 									<th>Action</th> 
 								</tr> 
 							</thead> 
 							<tbody>
 <?php
-$ret=mysqli_query($con,"select tbluser.FirstName,tbluser.LastName,tbluser.Email,tbluser.MobileNumber,bkgtbl.id as bid,bkgtbl.aptnumber,bkgtbl.aptdate,bkgtbl.apttime,bkgtbl.servicename,bkgtbl.cost,bkgtbl.bookingDate,bkgtbl.Status from bkgtbl join tbluser on tbluser.ID=bkgtbl.userid");
+$ret=mysqli_query($con,"select tbluser.FirstName,tbluser.LastName,tbluser.Email,tbluser.MobileNumber,bkgtbl.id 
+as bid,bkgtbl.aptnumber,bkgtbl.aptdate,bkgtbl.apttime,bkgtbl.servicename,bkgtbl.cost,bkgtbl.bookingDate,
+bkgtbl.Status, bkgtbl.payment from bkgtbl join tbluser on tbluser.ID=bkgtbl.userid");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
@@ -72,6 +75,7 @@ while ($row=mysqli_fetch_array($ret)) {
 						 	<td>₱ <?php  echo $row['cost'];?></td>
 						 	<td><?php  echo $row['aptdate'];?></td> 
 						 	<td><?php  echo $row['apttime'];?></td>
+							 <td><?php echo $row['payment'];?></td>
 						 	<?php if($row['Status']==""){ ?>
 
                      <td class="font-w600"><?php echo "Pending"; ?></td>
