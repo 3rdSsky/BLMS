@@ -4012,10 +4012,31 @@ h4.title3 {
   float: right!important;
 }
 
+.chartsize{
+    position: relative;
+    width: 850px!important;
+    height: 400px!important;
+    margin: auto;
+}
+
+.chartsize2{
+    position: relative;
+    width: 1000px!important;
+    height: 400px!important;
+    margin: auto;
+    display: none;
+}
+
 .trychart{
     width: 700px!important;
     height: 200px!important;
-    margin: auto;
+    display: none;
+}
+
+.trythis{
+    width: 300px;
+    height: 300px;
+    background: red;
 }
 
 .invoicecol{
@@ -4024,5 +4045,5 @@ h4.title3 {
 
 .custom-chart{
     width: 100%!important;
-    height: 300px!important;
+    height: 500px!important;
 }

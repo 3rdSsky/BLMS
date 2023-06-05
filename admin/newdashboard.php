@@ -6,29 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>try</title>
     <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-<div>
-  <canvas class="trychart" id="myChart"></canvas>
+<div class="chart-container" style="position: relative; height:100vh; width:100vw">
+    <canvas id="myChart"></canvas>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 <script>
   const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
-    type: 'bar',
+    type: 'doughnut',
     data: {
       labels: ['Yesterday Sales','Last Sevendays', 'Total Sales'],
       datasets: [{
-        label: 'Sales',
+        label: '',
         data: [12, 2, 9, 10],
         borderWidth: 1
       }]
     },
     options: {
-      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
     }
   });
 </script>

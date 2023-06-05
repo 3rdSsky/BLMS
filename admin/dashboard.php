@@ -43,6 +43,7 @@ $totalcust=mysqli_num_rows($query1);
 						</div>
 						<div class="clearfix"> </div>	
 					</div>
+					<!--
 					<div class="col-md-4 widget states-mdl">
 						<?php $query2=mysqli_query($con,"Select * from bkgtbl");
 $totalappointment=mysqli_num_rows($query2);
@@ -89,7 +90,7 @@ $totalrejapt=mysqli_num_rows($query4);
 						</div>
 						<div class="clearfix"> </div>	
 					</div>
-					<!-- Sales-->
+-->
 					
 					<div class="col-md-4 widget states-mdl">
 						<?php $query5=mysqli_query($con,"Select * from  servicetry");
@@ -237,41 +238,57 @@ endif;
 				<div class="custom-chart row calender widget-shadow">
 					<div class=" row-one">
 					<div class="dropdown">
-  						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    					Custom</button>
-						<button>Customer</button>
+  						<button class="btn btn-secondary" onClick="showsale()">
+    					Sales</button>
+						<button class="btn btn-secondary" onClick="showcustomer()">Customer</button>
   						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
 						 <label for="exampleInputEmail1"></label> 
 						 <input type="date" class="form-control1" name="fromdate" id="fromdate" value="" required='true'> 
   						</div>
 					</div>
-		<div>
-  			<canvas class="trychart" id="myChart"></canvas>
+		<div class="chartsize">
+  			<canvas class="" id="myChart"></canvas>
 		</div>
 
-		<script>
+		<div class="chartsize2">
+  		<canvas class="" id="myChart2"></canvas>
+		</div>
+				</div>
+				</div>
+				</div>
+				
+				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!--footer-->
+		<?php include_once('includes/footer.php');?>
+        <!--//footer-->
+	</div>
+
+	<!-- Line Chart -->
+	<script>
   			const ctx = document.getElementById('myChart');
   			new Chart(ctx, {
     		type: 'line',
     		data: {
-      		labels: ['Today Sales', 'Yesterday Sales','Last Sevendays', 'Total Sales'],
+      		labels: ['Yesterday Sales','Today Sales','Last Sevendays', 'Total Sales'],
       		datasets: [{
         		label: 'Sales',
         		data: [
-					<?php //Today Sales
-if($todysale==""):
-							echo "0";
-else:
-	echo $todysale;
-endif;
-						?>, 
-						<?php //Yesterday Sales 
+					<?php //Yesterday Sales 
 if($yesterdaysale==""):
 							echo "0";
 else:
 	echo $yesterdaysale;
 endif;
-						?>, <?php //Last Sevendays
+						?>, <?php //Today Sales
+						if($todysale==""):
+													echo "0";
+						else:
+							echo $todysale;
+						endif;
+												?>, <?php //Last Sevendays
 if($tseven==""):
 	echo "0";
 else:
@@ -288,22 +305,56 @@ endif;
       		}]
     		},
     		options: {
-      		responsive: true,
-    		}
-  			});
+				maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
 		</script>
-					</div>
-				</div>
-					</div>
-				</div>
-				
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-		<!--footer-->
-		<?php include_once('includes/footer.php');?>
-        <!--//footer-->
-	</div>
+
+<!-- doughnut or bar Chart -->
+	<script>
+  const ctx1 = document.getElementById('myChart2');
+
+  new Chart(ctx1, {
+    type: 'doughnut',
+    data: {
+      labels: ['Appointment <?php echo $totalappointment;?>','Accepted apt <?php echo $totalaccapt;?>', 'Rejected apt <?php echo $totalrejapt;?>'],
+      datasets: [{
+        label: '',
+        data: [<?php echo $totalappointment;?>, <?php echo $totalaccapt;?>, <?php echo $totalrejapt;?>],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  let customer = document.querySelector('.chartsize2');
+  let sale = document.querySelector('.chartsize');
+
+  let showcustomer = function(){
+    sale.style.display = 'none';
+    customer.style.display = 'block';
+  }
+
+  let showsale = function(){
+    customer.style.display = 'none';
+	sale.style.display = 'block';
+  }
+
+</script>
 
 </body>
 </html>
