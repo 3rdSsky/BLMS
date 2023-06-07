@@ -78,7 +78,8 @@ while ($row=mysqli_fetch_array($ret)) {
 			</select>
 		</div>
 </td>
-<td><input type="checkbox" name="sids[]" value="<?php  echo $row['id'];?>"></td> 
+<td><input type="checkbox" class="checks" name="sids[]" 
+			onClick="isChecked()"	value="<?php  echo $row['id'];?>"></td> 
 </tr>   
 <?php 
 if(isset($_POST["sids[]"])){
@@ -119,6 +120,14 @@ $cnt=$cnt+1;
 		 <?php include_once('includes/footer.php');?>
         <!--//footer-->
 	</div>
+
+	<script>
+		function isChecked(){
+			if(document.querySelector('.checks').checked){
+				document.querySelector('.Total').textContent = " <?php  echo $row['Cost'];?> ";
+			}
+		}
+	</script>
 </body>
 </html>
 <?php }  ?>

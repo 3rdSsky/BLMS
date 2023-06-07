@@ -11068,17 +11068,17 @@ paragraphs */
 
 }
 .sign-cont input[type="text"]{
-  width: 30%!important;
+  width: 20%!important;
   display: inline-flex!important;
 }
 
 .sign-cont input[type="number"]{
-  width: 30%!important;
+  width: 20%!important;
   display: inline-flex!important;
 }
 
 .sign-cont input[type="email"]{
-  width: 30%!important;
+  width: 20%!important;
   display: inline-flex!important;
 }
 
@@ -11106,6 +11106,39 @@ paragraphs */
   box-sizing: border-box;
 }
 
+.signup-pass{
+  width: 828px;
+  position: absolute;
+  left: -154px;
+}
+
+.First_name{
+  margin-left: -296px;
+}
+
+.MoblieN{
+  position: absolute;
+  width: 828px;
+  left: -165px;
+}
+
+.EmailA{
+  position: relative;
+  left: 100px;
+}
+
+.Confirmpass{
+  margin-left: 212px;
+  margin-right: 0;
+  position: relative;
+}
+
+.back-btn{
+  position: absolute;
+  right: 10px;
+  left: 215px;
+  top: 121.5%;
+}
 .forget-sign{
   margin:auto;
   width: 200px!important;
@@ -11118,7 +11151,6 @@ paragraphs */
   position: absolute;
 }
 
-.lock
 
 /* End of sections of text box*/
 
@@ -11259,6 +11291,7 @@ paragraphs */
   height: 200px;
 }
 
+
 .image-center{
   width: 100%;
 
@@ -11342,9 +11375,16 @@ paragraphs */
 }
 
 .custommerser-ads .card{
-  width: 300px!important;
-  height: 368px!important;
+  width: 227px!important;
+  height: 357px!important;
   border-radius: 10%;
+}
+
+.ads_Combo .card{
+  height: 376px!important;
+}
+.ads_Promo .card{
+  height: 318px!important;
 }
 /* End of Package or Deals */
 

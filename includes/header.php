@@ -33,10 +33,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.php">Contact</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin/index.php">Admin</a>
-                    </li>
+                    
                 <?php  }?>
                     <?php if (strlen($_SESSION['bpmsuid']>0)) {?>
                     <li class="nav-item">

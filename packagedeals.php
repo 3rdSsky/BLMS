@@ -119,14 +119,15 @@ $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,se
            <div class="col-md-4">
             <div class="offset-sm-4"> 
               <div class="custommerser-ads">
-                <div class="card">   
-                   <img src="admin/images/<?php echo $row['Image']?>" alt="product" br />  
-                   <h4 class="text-center"><?php echo $row["adstitle"]; ?></h4>  
-                   <h4 class="text-center">₱ <?php echo $row["cost"]; ?></h4>  
-                   <h4 class="text-center"> <?php echo $row["category"]; ?></h4>
+                <div class="ads_Package">
+                  <div class="card">   
+                    <img src="admin/images/<?php echo $row['Image']?>" alt="product" br />  
+                    <h4 class="text-center"><?php echo $row["adstitle"]; ?></h4>  
+                    <h4 class="text-center">₱ <?php echo $row["cost"]; ?></h4>  
+                    <h4 class="text-center"> <?php echo $row["category"]; ?></h4>
                     <button data-id='<?php echo $row['id']; ?>' class="ServicesDescription btn btn-danger" style="margin-bottom: 12px;">Learn More</button>
-
                     <button data-id='<?php echo $row['id']; ?>'  class="Booknow-ads btn btn-danger">BOOK NOW</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -151,7 +152,8 @@ $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,se
            <div class="col-md-4">
            <div class="offset-sm-4"> 
               <div class="custommerser-ads">
-                <div class="card">   
+                <div class="ads_New">
+                  <div class="card">   
                    <img src="admin/images/<?php echo $row['Image']?>" alt="product" br />  
                    <h4 class="text-center"><?php echo $row["adstitle"]; ?></h4>  
                    <h4 class="text-center">₱ <?php echo $row["cost"]; ?></h4>  
@@ -159,6 +161,7 @@ $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,se
                     <button data-id='<?php echo $row['id']; ?>' class="ServicesDescription btn btn-danger" style="margin-bottom: 12px;">Learn More</button>
 
                     <button data-id='<?php echo $row['id']; ?>'  class="Booknow-ads btn btn-danger">BOOK NOW</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -182,7 +185,8 @@ $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,se
            <div class="col-md-4">
            <div class="offset-sm-4"> 
               <div class="custommerser-ads">
-                <div class="card">   
+                <div class="ads_Solo">
+                  <div class="card">   
                    <img src="admin/images/<?php echo $row['Image']?>" alt="product" br />  
                    <h4 class="text-center"><?php echo $row["adstitle"]; ?></h4>  
                    <h4 class="text-center">₱ <?php echo $row["cost"]; ?></h4>  
@@ -190,6 +194,7 @@ $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,se
                     <button data-id='<?php echo $row['id']; ?>' class="ServicesDescription btn btn-danger" style="margin-bottom: 12px;">Learn More</button>
 
                     <button data-id='<?php echo $row['id']; ?>'  class="Booknow-ads btn btn-danger">BOOK NOW</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -214,7 +219,8 @@ $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,se
            <div class="col-md-4">
            <div class="offset-sm-4"> 
               <div class="custommerser-ads">
-                <div class="card">   
+                <div class="ads_Combo">
+                  <div class="card">   
                    <img src="admin/images/<?php echo $row['Image']?>" alt="product" br />  
                    <h4 class="text-center"><?php echo $row["adstitle"]; ?></h4>  
                    <h4 class="text-center">₱ <?php echo $row["cost"]; ?></h4>  
@@ -222,6 +228,7 @@ $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,se
                     <button data-id='<?php echo $row['id']; ?>' class="ServicesDescription btn btn-danger" style="margin-bottom: 12px;">Learn More</button>
 
                     <button data-id='<?php echo $row['id']; ?>'  class="Booknow-ads btn btn-danger">BOOK NOW</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -245,13 +252,15 @@ $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,se
            <div class="col-md-4">
            <div class="offset-sm-4"> 
               <div class="custommerser-ads">
-                <div class="card">   
+                <div class="ads_Promo">
+                  <div class="card">   
                    <img src="admin/images/<?php echo $row['Image']?>" alt="product" br />  
                    <h4 class="text-center"><?php echo $row["adstitle"]; ?></h4>   
                    <h4 class="text-center"> <?php echo $row["category"]; ?></h4>
                     <button data-id='<?php echo $row['id']; ?>' class="ServicesDescription btn btn-danger" style="margin-bottom: 12px;">Learn More</button>
 
                     <button data-id='<?php echo $row['id']; ?>'  class="Booknow-ads btn btn-danger">BOOK NOW</button>
+                  </div>
                 </div>
               </div>
             </div>

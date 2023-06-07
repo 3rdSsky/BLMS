@@ -93,14 +93,14 @@ return true;
 </section>
 <!-- breadcrumbs //-->
 <section class="">
-    <div class="map-content-9 mt-lg-0 mt-4">
+    <div class="map-content-9 text-center mt-lg-0 mt-4">
         <h3 style="padding-bottom: 10px;">Reset your password and Fill below details</h3>
         <form method="post">
             <div>
                 <input type="text" class="form-control text-center" name="email" placeholder="Enter Your Email" required="true">
             </div>
             <div style="padding-top: 30px;">
-                <input type="text" class="form-control text-center" name="contactno" placeholder="Contact Number" required="true" pattern="[0-9]+">
+                <input type="number" class="form-control text-center" name="contactno" placeholder="Contact Number" required="true" pattern="[0-9]+">
             </div>
             <div style="padding-top: 30px;">
                 <input type="password" class="form-control text-center" id="newpassword" name="newpassword" placeholder="New Password">
@@ -109,7 +109,7 @@ return true;
                 <input type="password" class="form-control text-center" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password">
             </div>
             <div class="forget-sign twice-two" style="padding-top: 30px;">
-                <a class="link--gray" style="color: blue;" href="login.php">signin</a>
+                <a class="link--gray" style="color: blue;" href="login.php">Signin</a>
                 <button type="submit" class="forgot-res btn btn-danger" name="submit">Reset</button>
             </div>
         </form>

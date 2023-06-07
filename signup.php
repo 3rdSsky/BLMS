@@ -97,29 +97,41 @@ return true;
             <form method="post" name="signup" onsubmit="return checkpass();">
                 <div>
                     <div class="signup-text">
-                        <label>First Name</label>
+                        <label class="First_name">First Name</label>
                         <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" required="">
-                        <label class="">Last Name</label>
+                        <label class="Lastname">Last Name</label>
                         <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name" required="">
                     </div>
                     <div class="signup-text">
                         <div class="signup-txt">
+                            <div class="MoblieN">
                             <label>Mobile Number</label>
                             <input type="number" class="form-control" placeholder="Mobile Number" required="" name="mobilenumber" pattern="[0-9]+" maxlength="10">
-                            <label class="singup-lbl">Email address</label>
-                            <input type="email" class="form-control" placeholder="Email address" required="" name="email">
+                            </div>
+                            <div class="EmailA">
+                                <label>Email address</label>
+                                <input type="email" class="form-control" placeholder="Email address" required="" name="email">
+                            </div>
                         </div>
                     </div>
                     <div class="signup-text">
-                        <label>Password</label>
+                        <div class="signup-pass">
+                            <label class="passW">Password</label>
                         <input type="password" class="form-control" name="password" placeholder="Password" required="true">
+                        </div>
+                        <div class="Confirmpass">
                         <label>Confirm Password</label>
                         <input type="password" class="form-control" name="repeatpassword" placeholder="Confirm password" required="true">
+                        </div>
+                        
                     </div>
                 </div>
                     <button type="submit" class="btn btn-danger" name="submit">Signup</button>
                 </div>
             </form>
+            <div class="back-btn">
+            <a href="index.php"><button class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</button></a>
+            </div>
         </div>
     </div>
 </section>
