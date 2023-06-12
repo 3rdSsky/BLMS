@@ -105,21 +105,51 @@ $totalser=mysqli_num_rows($query5);
 						</div>
 						<div class="clearfix"> </div>	
 					</div>
-					<!-- Sales
 
+					<div class="col-md-4 widget states-last">
+						<?php $query10=mysqli_query($con,"Select * from  adstbl");
+$totaldeals=mysqli_num_rows($query10);
+?>
+						<div class="stats-left">
+							<h5>Total</h5>
+							<h4>Package or Deals</h4>
+						</div>
+						<div class="stats-right">
+							<label> <?php echo $totaldeals;?></label>
+						</div>
+						<div class="clearfix"> </div>	
+					</div>
+					<!-- Sales
+					
 					<div class="col-md-4 widget states-last">
 						<?php
 //todays sale
- $query6=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, servicetry.cost
+ $query6=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, servicetry.Cost
  from tblinvoice2 
-  join servicetry on servicetry.id=tblinvoice2.ServiceId where date(PostingDate)=CURDATE();");
+  join servicetry on servicetry.id=tblinvoice2.ServiceId where date(PostingDate)=CURDATE() and Service='normal';");
+  $sub_service_td = 0;
+  $j = 0;
 while($row=mysqli_fetch_array($query6))
 {
-$todays_sale=$row['Cost'];
-$todysale+=$todays_sale;
+	$j++;
+$service_todays_sale=$row['Cost'];
+$sub_service_td+=$service_todays_sale;
 
 }
+?>
+<?php
+$query11=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, adstbl.adstitle, adstbl.cost
+from tblinvoice2 
+ join adstbl on adstbl.id=tblinvoice2.ServiceId where date(PostingDate)=CURDATE() and Service='special';");
+ $i = 0;
+while($row=mysqli_fetch_array($query11))
+{
+$ads_today_sale=$row['cost'];
+$sub_ads_td+=$ads_today_sale;
+}
+$todysale = $sub_service_td + $sub_ads_td;
  ?>
+ <!--
 						<div class="stats-left">
 							<h5>Today</h5>
 							<h4>Sales</h4>
