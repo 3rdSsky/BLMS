@@ -74,63 +74,83 @@ $(function () {
                    <div class="table-content table-responsive cart-table-content m-t-30" id="exampl">
                     <h3 class="title1">Invoice Details</h3>
                     
-    <?php
-    $invid=intval($_GET['invoiceid']);
-$ret=mysqli_query($con,"select DISTINCT  date(tblinvoice2.PostingDate) as invoicedate,tbluser.FirstName,tbluser.LastName,tbluser.Email,tbluser.MobileNumber,tbluser.RegDate
-    from  tblinvoice2 
-    join tbluser on tbluser.ID=tblinvoice2.Userid 
-    where tblinvoice2.BillingId='$invid'");
+                    <?php
+	$invid=intval($_GET['invoiceid']);
+$ret=mysqli_query($con,"select DISTINCT  date(tblinvoice2.PostingDate) 
+as invoicedate,tbluser.FirstName,tbluser.LastName,tbluser.Email,
+tbluser.MobileNumber,tbluser.RegDate,tblinvoice2.Service
+	from  tblinvoice2 
+	join tbluser on tbluser.ID=tblinvoice2.Userid 
+	where tblinvoice2.BillingId='$invid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
-?>              
-                
-                    <div class="table-responsive bs-example widget-shadow">
-                        <h4>Invoice #<?php echo $invid;?></h4>
-                        <table class="table table-bordered" width="100%" border="1"> 
+?>				
+				
+					<div class="table-responsive bs-example widget-shadow">
+						<h4>Invoice #<?php echo $invid;?></h4>
+						<table class="table table-bordered" width="100%" border="2"> 
 <tr>
-<th colspan="6">Customer Details</th>   
+<th colspan="6">Customer Details</th>	
 </tr>
-                             <tr> 
-                                <th>Name</th> 
-                                <td><?php echo $row['FirstName']?> <?php echo $row['LastName']?></td> 
-                                <th>Contact no.</th> 
-                                <td><?php echo $row['MobileNumber']?></td>
-                                <th>Email </th> 
-                                <td><?php echo $row['Email']?></td>
-                            </tr> 
-                             <tr> 
-                                <th>Registration Date</th> 
-                                <td><?php echo $row['RegDate']?></td> 
-                                <th>Invoice Date</th> 
-                                <td colspan="3"><?php echo $row['invoicedate']?></td> 
-                            </tr> 
-<?php }?>
+							 <tr> 
+								<th>Name</th> 
+								<td><?php echo $row['FirstName']?> <?php echo $row['LastName']?></td> 
+								<th>Contact no.</th> 
+								<td><?php echo $row['MobileNumber']?></td>
+								<th>Email </th> 
+								<td><?php echo $row['Email']?></td>
+							</tr> 
+							 <tr> 
+								<th>Booking Date</th> 
+								<td><?php echo $row['RegDate']?></td> 
+								<th>Invoice Date</th> 
+								<td colspan="3"><?php echo $row['invoicedate']?></td> 
+							</tr> 
 </table> 
-<table class="table table-bordered" width="100%" border="1"> 
+<table class="table table-bordered" width="100%" border="2"> 
 <tr>
-<th colspan="4">Services Details</th>   
+<th colspan="3">Services Details</th>
 </tr>
 <tr>
-<th>#</th>  
+<th>#</th>	
 <th>Service</th>
 <th>Assign Services</th>
 <th>Cost</th>
 </tr>
-
-<?php
-$ret=mysqli_query($con,"select servicetry.ServiceName,servicetry.Cost,tblinvoice2.AssignServ,tblinvoice2.Payment  
-    from  tblinvoice2 
-    join servicetry on servicetry.ID=tblinvoice2.ServiceId 
-    where tblinvoice2.BillingId='$invid'");
+<input type="hidden" value="<?php if($row['Service']=="special") {?>">
+	<?php
+$ret=mysqli_query($con,"select adstbl.adstitle,adstbl.cost,tblinvoice2.AssignServ,tblinvoice2.Payment  
+	from  tblinvoice2 
+	join adstbl on adstbl.id=tblinvoice2.ServiceId 
+	where tblinvoice2.BillingId='$invid'");
 $cnt=1;
-while ($row=mysqli_fetch_array($ret)) {
-    ?>
-
+while ($row=mysqli_fetch_array($ret)) { ?>
+<tr>
+<th><?php echo $cnt;?></th>
+<td><?php echo $row['adstitle']?></td>
+<td><?php echo $row['AssignServ']?></td>	
+<td>₱ <?php echo $subtotal=$row['cost']?></td>
+</tr>
+<?php 
+$cnt=$cnt+1;
+$gtotal+=$subtotal;
+$payment = $row['Payment'];
+} ?>
+<?php } else { ?>
+<div class="invoice-2ndtable">
+</div>
+	<?php 
+$result=mysqli_query($con,"select servicetry.ServiceName,servicetry.Cost,tblinvoice2.AssignServ,tblinvoice2.Payment  
+	from  tblinvoice2 
+	join servicetry on servicetry.id=tblinvoice2.ServiceId 
+	where tblinvoice2.BillingId='$invid'");
+$cnt=1;
+while ($row=mysqli_fetch_array($result)) { ?>
 <tr>
 <th><?php echo $cnt;?></th>
 <td><?php echo $row['ServiceName']?></td>
-<td><?php echo $row['AssignServ']?></td>   
+<td><?php echo $row['AssignServ']?></td>	
 <td>₱ <?php echo $subtotal=$row['Cost']?></td>
 </tr>
 <?php 
@@ -138,7 +158,9 @@ $cnt=$cnt+1;
 $gtotal+=$subtotal;
 $payment = $row['Payment'];
 } ?>
+<?php } ?>
 
+<?php }?>
 <tr>
 <th colspan="3" style="text-align:center">Grand Total</th>
 <th>₱ <?php echo $gtotal?></th>
@@ -152,6 +174,7 @@ $payment = $row['Payment'];
 <th>₱ <?php echo $payment - $gtotal?></th>
 </tr>
 
+</tr>
 </table>
   <p style="margin-top:1%"  align="center">
   <i class="fa fa-print fa-2x" style="cursor: pointer;"  OnClick="CallPrint(this.value)" ></i>

@@ -85,7 +85,7 @@ $y2=date("Y",$month2);
 </tr>
 </thead>
 <?php
-$ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as lyear,sum(Cost) as totalprice from  tblinvoice join tblservices on tblservices.ID= tblinvoice.ServiceId where date(tblinvoice.PostingDate) between '$fdate' and '$tdate' group by lmonth,lyear");
+$ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as lyear,sum(Cost) as totalprice from  tblinvoice2 join servicetry on servicetry.id= tblinvoice2.ServiceId where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' group by lmonth,lyear");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
@@ -125,7 +125,7 @@ $y2=date("Y",$year2);
 </tr>
 </thead>
 <?php
-$ret=mysqli_query($con,"select year(PostingDate) as lyear,sum(Cost) as totalprice from  tblinvoice join tblservices on tblservices.ID= tblinvoice.ServiceId where date(tblinvoice.PostingDate) between '$fdate' and '$tdate' group by lyear");
+$ret=mysqli_query($con,"select year(PostingDate) as lyear,sum(Cost) as totalprice from  tblinvoice2 join servicetry on servicetry.id= tblinvoice2.ServiceId where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' group by lyear");
 
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {

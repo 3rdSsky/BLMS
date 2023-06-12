@@ -12,24 +12,24 @@ if(isset($_POST['submit']))
     $email=$_POST['email'];
     $password=md5($_POST['password']);
 
-    $ret=mysqli_query($con, "select Email from tbluser where Email='$email' || MobileNumber='$contno' limit by 1");
+    $ret=mysqli_query($con, "select Email from tbluser where Email='$email' || MobileNumber='$contno'");
     $result=mysqli_fetch_array($ret);
     if($result>0){
 
-        echo "<script>alert('This email or Contact Number already associated with another account!.');</script>";
-        die();
+echo "<script>alert('This email or Contact Number already associated with another account!.');</script>";
     }
     else{
-        $query=mysqli_query($con, "insert into tbluser(FirstName, LastName, MobileNumber, Email, Password) value('$fname', '$lname','$contno', '$email', '$password' )");
-        if ($query) {
-            echo "<script>alert('You have successfully registered.');</script>";
-            echo "<script>window.location.href='signup.php'</script>";
-        }
-        else
-        {
-            echo "<script>alert('Something Went Wrong. Please try again.');</script>";
-        }
+    $query=mysqli_query($con, "insert into tbluser(FirstName, LastName, MobileNumber, Email, Password) value('$fname', '$lname','$contno', '$email', '$password' )");
+    if ($query) {
+    
+    echo "<script>alert('You have successfully registered.');</script>";
+  }
+  else
+    {
+    
+      echo "<script>alert('Something Went Wrong. Please try again.');</script>";
     }
+}
 }
 ?>
 <!doctype html>
@@ -103,16 +103,15 @@ return true;
                         <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name" required="">
                     </div>
                     <div class="signup-text">
-                        <div class="signup-txt">
+                            <div class="signup-pass"></div>
                             <div class="MoblieN">
                             <label>Mobile Number</label>
-                            <input type="number" class="form-control" placeholder="Mobile Number" required="" name="mobilenumber" pattern="[0-9]+" maxlength="10">
+                            <input type="text" class="form-control" placeholder="Mobile Number" required="" name="mobilenumber" pattern="[0-9]+" maxlength="10">
                             </div>
                             <div class="EmailA">
                                 <label>Email address</label>
                                 <input type="email" class="form-control" placeholder="Email address" required="" name="email">
                             </div>
-                        </div>
                     </div>
                     <div class="signup-text">
                         <div class="signup-pass">

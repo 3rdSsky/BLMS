@@ -58,7 +58,9 @@ if (strlen($_SESSION['bpmsaid']==0)) {
 					
 	<?php
 	$invid=intval($_GET['invoiceid']);
-$ret=mysqli_query($con,"select DISTINCT  date(tblinvoice2.PostingDate) as invoicedate,tbluser.FirstName,tbluser.LastName,tbluser.Email,tbluser.MobileNumber,tbluser.RegDate
+$ret=mysqli_query($con,"select DISTINCT  date(tblinvoice2.PostingDate) 
+as invoicedate,tbluser.FirstName,tbluser.LastName,tbluser.Email,
+tbluser.MobileNumber,tbluser.RegDate,tblinvoice2.Service
 	from  tblinvoice2 
 	join tbluser on tbluser.ID=tblinvoice2.Userid 
 	where tblinvoice2.BillingId='$invid'");
@@ -87,11 +89,10 @@ while ($row=mysqli_fetch_array($ret)) {
 								<th>Invoice Date</th> 
 								<td colspan="3"><?php echo $row['invoicedate']?></td> 
 							</tr> 
-<?php }?>
 </table> 
 <table class="table table-bordered" width="100%" border="1"> 
 <tr>
-<th colspan="3">Services Details</th>	
+<th colspan="3">Services Details</th>
 </tr>
 <tr>
 <th>#</th>	
@@ -99,16 +100,35 @@ while ($row=mysqli_fetch_array($ret)) {
 <th>Assign Services</th>
 <th>Cost</th>
 </tr>
-
-<?php
-$ret=mysqli_query($con,"select servicetry.ServiceName,servicetry.Cost,tblinvoice2.AssignServ,tblinvoice2.Payment  
+<input type="hidden" value="<?php if($row['Service']=="special") {?>">
+	<?php
+$ret=mysqli_query($con,"select adstbl.adstitle,adstbl.cost,tblinvoice2.AssignServ,tblinvoice2.Payment  
+	from  tblinvoice2 
+	join adstbl on adstbl.id=tblinvoice2.ServiceId 
+	where tblinvoice2.BillingId='$invid'");
+$cnt=1;
+while ($row=mysqli_fetch_array($ret)) { ?>
+<tr>
+<th><?php echo $cnt;?></th>
+<td><?php echo $row['adstitle']?></td>
+<td><?php echo $row['AssignServ']?></td>	
+<td>₱ <?php echo $subtotal=$row['cost']?></td>
+</tr>
+<?php 
+$cnt=$cnt+1;
+$gtotal+=$subtotal;
+$payment = $row['Payment'];
+} ?>
+<?php } else { ?>
+<div class="invoice-2ndtable">
+</div>
+	<?php 
+$result=mysqli_query($con,"select servicetry.ServiceName,servicetry.Cost,tblinvoice2.AssignServ,tblinvoice2.Payment  
 	from  tblinvoice2 
 	join servicetry on servicetry.id=tblinvoice2.ServiceId 
 	where tblinvoice2.BillingId='$invid'");
 $cnt=1;
-while ($row=mysqli_fetch_array($ret)) {
-	?>
-
+while ($row=mysqli_fetch_array($result)) { ?>
 <tr>
 <th><?php echo $cnt;?></th>
 <td><?php echo $row['ServiceName']?></td>
@@ -120,7 +140,9 @@ $cnt=$cnt+1;
 $gtotal+=$subtotal;
 $payment = $row['Payment'];
 } ?>
+<?php } ?>
 
+<?php }?>
 <tr>
 <th colspan="3" style="text-align:center">Grand Total</th>
 <th>₱ <?php echo $gtotal?></th>

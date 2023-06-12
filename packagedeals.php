@@ -5,9 +5,10 @@ include('includes/dbconnection.php');
 if (strlen($_SESSION['bpmsuid']==0)) {
   header('location:logout.php');
   } else{
+
 if(isset($_POST["book_now"]))  
  {  
- 	$uid=$_SESSION['bpmsuid'];
+    $uid=$_SESSION['bpmsuid'];
     $name=$_POST['hidden_name'];
     $cost=$_POST['hidden_price'];
     $bkgtime = $_POST['hidden_bookingtime'];
@@ -16,20 +17,18 @@ if(isset($_POST["book_now"]))
     $atime=$_POST['atime'];
     $aptnumber = mt_rand(100000000, 999999999);
   
-    $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,servicename,cost,payment) value('$uid','$aptnumber','$adate','$atime','$name','$cost','$fop)");
+    $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,servicename,cost,payment) value('$uid','$aptnumber','$adate','$atime','$name','$cost','$fop')");
 
     if ($query) {
-$ret=mysqli_query($con,"select aptnumber from bkgtbl where bkgtbl.userid='$uid' order by ID desc limit 1;");
-$result=mysqli_fetch_array($ret);
-$_SESSION['aptno']=$result['aptnumber'];
-  }
-  else
-    {
-      echo '<script>alert("Something Went Wrong. Please try again")</script>';
+      $ret=mysqli_query($con,"select aptnumber from bkgtbl where bkgtbl.userid='$uid' order by ID desc limit 1;");
+      $result=mysqli_fetch_array($ret);
+      $_SESSION['aptno']=$result['aptnumber']; 
     }
-
-  }
-
+    else
+      {
+      echo '<script>alert("Something Went Wrong. Please try again")</script>';
+      }
+}
 
   // save with image
   if(isset($_POST['online_book']))

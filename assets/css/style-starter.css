@@ -11117,27 +11117,23 @@ paragraphs */
 }
 
 .MoblieN{
-  position: absolute;
   width: 828px;
-  left: -165px;
+  position: absolute;
+  left: -176px;
 }
 
 .EmailA{
-  position: relative;
-  left: 100px;
+  margin-left: 109px;
 }
 
 .Confirmpass{
   margin-left: 212px;
-  margin-right: 0;
-  position: relative;
 }
 
 .back-btn{
-  position: absolute;
-  right: 10px;
-  left: 215px;
-  top: 121.5%;
+  margin-left: 423px;
+  margin-top: -53px;
+  margin-bottom: 3px;
 }
 .forget-sign{
   margin:auto;
@@ -11386,5 +11382,6 @@ paragraphs */
 .ads_Promo .card{
   height: 318px!important;
 }
+
 /* End of Package or Deals */
 

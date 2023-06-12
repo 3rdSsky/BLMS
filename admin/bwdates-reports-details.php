@@ -54,8 +54,8 @@ $tdate=$_POST['todate'];
 							</tr> 
 							</thead> <tbody>
 <?php
-$ret=mysqli_query($con,"select distinct tbluser.FirstName,tbluser.LastName,tblinvoice.BillingId,tblinvoice.PostingDate from  tbluser   
-	join tblinvoice on tbluser.ID=tblinvoice.Userid  where date(tblinvoice.PostingDate) between '$fdate' and '$tdate'");
+$ret=mysqli_query($con,"select distinct tbluser.FirstName,tbluser.LastName,tblinvoice2.BillingId,tblinvoice2.PostingDate from  tbluser   
+	join tblinvoice2 on tbluser.ID=tblinvoice2.UserId  where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

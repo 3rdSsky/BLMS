@@ -79,7 +79,7 @@ move_uploaded_file($_FILES["image"]["tmp_name"],"images/".$newimage);
   							<div class="form-group">
 	  							<h3>Choose a Package or Deals</h3>
 									<div class="select">
-										<select name="category" id="sercombobox">
+										<select name="category" id="sercombobox" required>
 											<option selected disabled>Choose a Category</option>
 											<option value="Solo">Solo</option>
 											<option value="New">New</option>
@@ -101,7 +101,7 @@ move_uploaded_file($_FILES["image"]["tmp_name"],"images/".$newimage);
 							 </div>
 							 <div class="form-group"> 
 							  	<label for="exampleInputPassword1">Cost</label> 
-							  	<input type="text" id="cost" name="cost" class="form-control" placeholder="Cost" value="" required="true"> 
+							  	<input type="number" id="cost" name="cost" class="form-control" placeholder="Cost" value="" required="true"> 
 							 </div>
 							<div class="form-group"> 
 								<label for="exampleInputEmail1">Images</label> <input type="file" class="form-control" id="image" name="image" value="" required="true"> 

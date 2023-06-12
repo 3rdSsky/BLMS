@@ -94,7 +94,7 @@ echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');
 							 </div>
 							 <div class="form-group"> 
 							  	<label for="exampleInputPassword1">Cost</label> 
-							  	<input type="text" id="cost" name="cost" class="form-control" placeholder="Cost" value="" required="true"> 
+							  	<input type="number" id="cost" name="cost" class="form-control" placeholder="Cost" value="" required="true"> 
 							 </div>
 							 <div class="form-group"> 
 							  	<label for="exampleInputPassword1">Booking Time</label> 

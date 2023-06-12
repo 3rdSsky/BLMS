@@ -1,4 +1,4 @@
- <div class="slider"> 
+<div class="slider">
 		<div class="slides">
 			<input type="radio" name="radio-btn" id="radio1">
 			<input type="radio" name="radio-btn" id="radio2">
@@ -21,7 +21,7 @@
 					<a href="login.php?id=packagedeals"><img src="assets/img/advertisement/advertisement/new/lip.jpg" alt=""></a>
 				</div>
 				<img src="assets/img/gluta-2.jpg">
-		</div>
+			</div>
 			<!---- End of slide --->
 
 			<!---- automatic navigation start--->
@@ -43,7 +43,7 @@
 
 	
 		<!--- Java  image slider---->
-	//<script type="text/javascript">
+	<script type="text/javascript">
     var counter = 1;
     setInterval(function(){
       document.getElementById('radio' + counter).checked = true;

@@ -109,7 +109,7 @@ return true;
                 <input type="password" class="form-control text-center" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password">
             </div>
             <div class="forget-sign twice-two" style="padding-top: 30px;">
-                <a class="link--gray" style="color: blue;" href="login.php">Signin</a>
+                <a class="link--gray" style="color: blue;" href="login.php">Login</a>
                 <button type="submit" class="forgot-res btn btn-danger" name="submit">Reset</button>
             </div>
         </form>

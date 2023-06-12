@@ -4047,3 +4047,11 @@ h4.title3 {
     width: 100%!important;
     height: 500px!important;
 }
+
+.tblPackageDeals{
+    display: none;
+  }
+
+.invoice-2ndtable{
+    display: hidden;
+}

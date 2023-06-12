@@ -73,7 +73,7 @@ $(function () {
                 <div class="cont-details">
                    <div class="table-content table-responsive cart-table-content">
                     <h4 style="padding-bottom: 20px;text-align: center;color: blue;">Invoice History</h4>
-                        <table class="table" border="1">
+                        <table class="table" border="2">
                             <thead >
                                 <tr> 
                                 <th>#</th> 

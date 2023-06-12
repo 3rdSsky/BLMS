@@ -72,11 +72,11 @@ $(function () {
                     <div class="services-offer card-body">
                         <h1 class="card-title">Gluta Services</h1>
                         <ul>
-                            <li>Standard IV,</li>
-                            <li>Tad IV Slimming,</li>
-                            <li>Sexy White IV,</li>
-                            <li>Collagen,</li>
-                            <li>Vitamin C,</li>
+                            <li>Standard IV</li>
+                            <li>Tad IV Slimming</li>
+                            <li>Sexy White IV</li>
+                            <li>Collagen</li>
+                            <li>Vitamin C</li>
                         </ul>
                         <a href="services.php" class="learn btn">Learn More</a>
                     </div>
