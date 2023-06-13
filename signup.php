@@ -43,8 +43,9 @@ echo "<script>alert('This email or Contact Number already associated with anothe
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body id="home">
-<?php include_once('includes/header.php');?>
-
+    <div class="header-color">
+        <div class="header-position"><?php include_once('includes/header.php');?></div>
+    </div>
 <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 <!--bootstrap working-->
 <script src="assets/js/bootstrap.min.js"></script>
@@ -103,16 +104,15 @@ return true;
                         <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name" required="">
                     </div>
                     <div class="signup-text">
-                            <div class="signup-pass"></div>
                             <div class="MoblieN">
                             <label>Mobile Number</label>
                             <input type="text" class="form-control" placeholder="Mobile Number" required="" name="mobilenumber" pattern="[0-9]+" maxlength="10">
                             </div>
                             <div class="EmailA">
-                                <label>Email address</label>
-                                <input type="email" class="form-control" placeholder="Email address" required="" name="email">
+                                <label class="EmailA">Email address</label>   
+                                <input type="email" class="form-control" placeholder="Email address" required="" name="email">    
                             </div>
-                    </div>
+                        </div>
                     <div class="signup-text">
                         <div class="signup-pass">
                             <label class="passW">Password</label>
@@ -128,9 +128,6 @@ return true;
                     <button type="submit" class="btn btn-danger" name="submit">Signup</button>
                 </div>
             </form>
-            <div class="back-btn">
-            <a href="index.php"><button class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</button></a>
-            </div>
         </div>
     </div>
 </section>

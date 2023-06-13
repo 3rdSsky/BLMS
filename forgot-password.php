@@ -42,7 +42,9 @@ echo "<script>alert('Password successfully changed');</script>";
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body id="home">
-<?php include_once('includes/header.php');?>
+    <div class="header-color">
+        <div class="header-position"><?php include_once('includes/header.php');?></div>
+    </div>
 
 <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 <!--bootstrap working-->

@@ -10,14 +10,15 @@
 			<!---- slide start--->
 			<div class="slide first">
 				<div class="first-ads-dev">
-					<button onClick="firstadshide()"><i class="fa fa-times"></i></button>
 					<a href="login.php?id=packagedeals"><img src="assets/img/advertisement/advertisement/combo/drip.jpg" alt=""></a>
+					<button class="x-btn" onClick="firstadshide()"><i class="fa fa-times"></i></button>
 				</div>
 				<img src="assets/img/gluta.jpg">
 			</div>
 			<div class="slide">
 				<div class="ads-dev">
 					<a href="login.php?id=packagedeals"><img src="assets/img/advertisement/advertisement/new/barbie.jpg" alt=""></a>
+					<button class="x-btn" onClick="firstadshide()"><i class="fa fa-times"></i></button>
 				</div>
 				<img src="assets/img/gluta-1.jpg">
 			</div>
@@ -25,6 +26,7 @@
 				<div class="ads-dev">
 					<div class="last_adds">
 						<a href="login.php?id=packagedeals"><img src="assets/img/advertisement/advertisement/new/lip.jpg" alt=""></a>
+						<button class="x-btn" onClick="firstadshide()"><i class="fa fa-times"></i></button>
 					</div>
 				</div>
 				<img src="assets/img/gluta-2.jpg">

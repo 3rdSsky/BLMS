@@ -16,7 +16,9 @@ include('includes/dbconnection.php');
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   </head>
   <body id="home">
-<?php include_once('includes/header.php');?>
+  <div class="header-color">
+        <div class="header-position"><?php include_once('includes/header.php');?></div>
+    </div>
 
 <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 <!--bootstrap working-->
@@ -61,7 +63,7 @@ $(function () {
 <div class="row">
 		<div class="">
             <div class="hair-make">
-                <p>Brey's Beauty Lounge is a beauty salon that offers services like spa, beauty, and personal care. Like other businesses and salons, Brey's Beauty Lounge began as a tiny business, with the proprietor visiting each of his or her clients' homes. The (owner) has overcome many obstacles to get where she is today. She will continue to work hard until the beauty lounge becomes larger and more popular, at which point she already has branches in any Visayas city she chooses, including Bacolod, Roxas City, Cebu, Iloilo, Dumaguete, Layu-Lapu, Miagao, San Carlos City, Kalibo, Tigbauan, and Silay.</p>
+                <p><spam></spam> Brey's Beauty Lounge is a beauty salon that offers services like spa, beauty, and personal care. Like other businesses and salons, Brey's Beauty Lounge began as a tiny business, with the proprietor visiting each of his or her clients' homes. The (owner) has overcome many obstacles to get where she is today. She will continue to work hard until the beauty lounge becomes larger and more popular, at which point she already has branches in any Visayas city she chooses, including Bacolod, Roxas City, Cebu, Iloilo, Dumaguete, Layu-Lapu, Miagao, San Carlos City, Kalibo, Tigbauan, and Silay.</p>
             </div>
                 <br>
                  <h3>Services</h3>

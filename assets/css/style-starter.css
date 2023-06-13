@@ -2442,6 +2442,8 @@
 
 .hair-make p{
   font-size: 1.5rem;
+  display: flex;
+  text-align: justify!important;
 }
 
 .about-con{
@@ -10826,6 +10828,12 @@ h3.color-white {
   padding: 10px;
 }
 
+.x-btn{
+  position: absolute;
+  right: 4px;
+  top:2px;
+}
+
   /* End of image */
 
 /* manual slide navigation*/
@@ -11033,6 +11041,7 @@ paragraphs */
 .login-sec{
   overflow: hidden;
   padding-top: 24px;
+  background: #ffe6e6;
 }
 
 .login-form{
@@ -11066,6 +11075,7 @@ paragraphs */
   overflow: hidden;
   text-align: center;
   padding-top: 14px;
+  background: #ffe6e6;
 
 }
 .sign-cont input[type="text"]{
@@ -11122,20 +11132,30 @@ paragraphs */
   position: absolute;
   left: -176px;
 }
-
 .EmailA{
-  margin-left: 109px;
+  margin-left: 60px!important;
 }
 
 .Confirmpass{
-  margin-left: 212px;
+  margin-left: 203px;
+}
+.header-color{
+  width: 100%;
+   background-color: #f07167;
+  /* text-align: center;
+  align-items: center;
+  justify-content: center; */
+  margin: auto;
 }
 
-.back-btn{
-  margin-left: 423px;
-  margin-top: -53px;
-  margin-bottom: 3px;
+.header-position{
+  width: 50%;
+  margin: auto;
+  margin-top: -50px;
+  padding-bottom: 30px;
 }
+/* .header-color .navbar-expand-lg .navbar-nav .nav-link:hover {
+  color: #5b35f0; } */
 .forget-sign{
   margin:auto;
   width: 200px!important;
@@ -11383,6 +11403,5 @@ paragraphs */
 .ads_Promo .card{
   height: 318px!important;
 }
-
 /* End of Package or Deals */
 
