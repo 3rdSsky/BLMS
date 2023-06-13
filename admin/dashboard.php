@@ -127,11 +127,9 @@ $totaldeals=mysqli_num_rows($query10);
  $query6=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, servicetry.Cost
  from tblinvoice2 
   join servicetry on servicetry.id=tblinvoice2.ServiceId where date(PostingDate)=CURDATE() and Service='normal';");
-  $sub_service_td = 0;
-  $j = 0;
+
 while($row=mysqli_fetch_array($query6))
 {
-	$j++;
 $service_todays_sale=$row['Cost'];
 $sub_service_td+=$service_todays_sale;
 
@@ -141,7 +139,6 @@ $sub_service_td+=$service_todays_sale;
 $query11=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, adstbl.adstitle, adstbl.cost
 from tblinvoice2 
  join adstbl on adstbl.id=tblinvoice2.ServiceId where date(PostingDate)=CURDATE() and Service='special';");
- $i = 0;
 while($row=mysqli_fetch_array($query11))
 {
 $ads_today_sale=$row['cost'];
