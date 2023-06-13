@@ -80,15 +80,16 @@ $y2=date("Y",$month2);
 						<table class="table table-bordered">  <thead>
 <tr>
 <th>S.NO</th>
-<th>Month / Year </th>
+<th>Month / Year</th>
+<th>Services</th>
 <th>Sales</th>
 </tr>
 </thead>
 <?php
 $ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as lyear,sum(Cost) 
-						as totalprice from  
-						tblinvoice2 join servicetry on servicetry.id= tblinvoice2.ServiceId 
-						where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' group by lmonth,lyear");
+						as totalprice, tblinvoice2.Service from  
+						tblinvoice2 join servicetry on servicetry.id= tblinvoice2.ServiceId
+						where date(tblinvoice2.PostingDate)  between '$fdate' and '$tdate' and Service='normal' group by lmonth,lyear");
 						$cnt=1;
 						while ($row=mysqli_fetch_array($ret)) {
 ?>
@@ -96,34 +97,35 @@ $ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as
                 <tr>
                     <td><?php echo $cnt;?></td>
                   <td><?php  echo $row['lmonth']."/".$row['lyear'];?></td>
-              <td><?php  echo $total=$row['totalprice'];?></td>
+				  <td>Normal</td>
+              <td><?php  echo $service_total=$row['totalprice'];?></td>
              
                     </tr>
                 <?php
-$ftotal+=$total;
+$fsub_service_total+=$service_total;
 $cnt++;
 }?>
-<!-- <?php
-// $ads_ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as lyear,sum(Cost) 
-// 						as adstotalprice from  
-// 						tblinvoice2 join adstbl on adstbl.id= tblinvoice2.ServiceId 
-// 						where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' group by lmonth,lyear");
-// $cnt=1;
-// while ($ads_row=mysqli_fetch_array($ads_ret)) {
-// ?>
+<?php
+$ads_ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as lyear,sum(Cost) 
+						as adstotalprice, tblinvoice2.Service from  
+						tblinvoice2 join adstbl on adstbl.id= tblinvoice2.ServiceId 
+						where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' and Service='special' group by lmonth,lyear");
+while ($ads_row=mysqli_fetch_array($ads_ret)) {
+?>
               
-//                 <tr>
-//                     <td><?php echo $cnt;?></td>
-//                   <td><?php  echo $ads_row['lmonth']."/".$ads_row['lyear'];?></td>
-//               <td><?php  echo $total=$ads_row['adstotalprice'];?></td>
+                <tr>
+                    <td><?php echo $cnt;?></td>
+                  <td><?php  echo $ads_row['lmonth']."/".$ads_row['lyear'];?></td>
+				  <td>Special</td>
+              <td><?php  echo $ads_total=$ads_row['adstotalprice'];?></td>
              
-//                     </tr>
-//                 <?php
-// $ftotal+=$total;
-// $cnt++;
-// }?> -->
+                    </tr>
+                <?php
+$sub_ads_+=$ads_total;
+$cnt++;
+}?> 
 <tr>
-                  <td colspan="2" align="center">Total </td>
+                  <td colspan="3" align="center">Total </td>
               <td><?php  echo $ftotal;?></td>
    
                  
