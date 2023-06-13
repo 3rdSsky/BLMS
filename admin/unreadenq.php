@@ -63,7 +63,7 @@ while ($row=mysqli_fetch_array($ret)) {
                   <td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td>
                                         <td><?php  echo $row['Email'];?></td>
                                         <td>
-                                            <span class="badge badge-primary"><?php echo $row['EnquiryDate'];?></span>
+                                            <span class="badge badge-primary"><?php echo date('M d, Y h:i:s A',strtotime($row['EnquiryDate']));?></span>
                                         </td>
                                          <td><a href="view-enquiry.php?viewid=<?php echo $row['ID'];?>" class="btn btn-primary">View</a>
 <a href="unreadenq.php?delid=<?php echo $row['ID'];?>" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')">Delete</a></td>

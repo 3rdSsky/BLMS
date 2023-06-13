@@ -108,10 +108,10 @@ $subtotal = 0;
 	<td></td>
 	<td></td>
 
-	<td>
+	<!-- <td>
 	<label for="Total">Total</label>
 	<input type="text" name="Total" value="<?php //echo $subtotal?>">
-</td>
+</td> -->
 
 <td>
 	<input type="hidden" name="" value="normal">

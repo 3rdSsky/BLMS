@@ -1,6 +1,6 @@
 <!--footer-->
     <div class="footer">
-       <p>&copy; 2022 BLMS Admin Panel.</p>
+       <p>&copy; 2023 BLMS Admin Panel.</p>
     </div>
         <!--//footer-->
 

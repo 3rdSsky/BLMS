@@ -100,18 +100,18 @@ $(function () {
                             <th>Service Name</th>
                             <td><?php  echo $row['servicename'];?></td>
                           </tr>
-                          
+                          <tr>
                             <th>Price</th>
-                            <td>₱ <?php  echo $row['cost'];?></td>
+                            <td>₱ <?php  echo number_format($row['cost'],2);?></td>
                           </tr>
                            <tr>
                             <th>Appointment Date</th>
-                            <td><?php  echo $row['aptdate'];?></td>
+                            <td><?php  echo date('M d, Y',strtotime($row['aptdate']));?></td>
                           </tr>
                          
                         <tr>
                             <th>Appointment Time</th>
-                            <td><?php  echo $row['apttime'];?></td>
+                            <td><?php  echo date('h:i:s A',strtotime($row['apttime']));?></td>
                           </tr>
                           <tr>
                             <th>Form of Payment</th>

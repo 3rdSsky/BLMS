@@ -101,14 +101,14 @@ if(isset($_POST['submit']))
 								</tr>
 								<tr>
 									<th>Cost</th>
-									<td><?php  echo $row['cost'];?></td>
+									<td>₱ <?php  echo number_format($row['cost'],2);?></td>
 								</tr>
 								<th>Appointment Date</th>
-									<td><?php  echo $row['aptdate'];?></td>
+									<td><?php  echo date('M d, Y',strtotime($row['aptdate']));?></td>
 								</tr>
 								<tr>
 									<th>Appointment Time</th>
-									<td><?php  echo $row['apttime'];?></td>
+									<td><?php  echo date('h:i:s A',strtotime($row['apttime']));?></td>
 								</tr>
 								<tr>
 									<th>Apply Date</th>
@@ -165,6 +165,7 @@ if(isset($_POST['submit']))
 												<option value="" selected="true">Select Status</option>
 												<option value="Accepted">Accepted</option>
 												<option value="Rejected">Rejected</option>
+												<option value="Rejected">No Show Client</option>
 											</select></td>
 										</tr>
 										<tr align="center">

@@ -103,9 +103,9 @@ while ($row=mysqli_fetch_array($ret)) {
 							</tr> 
 							 <tr> 
 								<th>Booking Date</th> 
-								<td><?php echo $row['RegDate']?></td> 
+								<td><?php echo date('M d, Y h:i:s A',strtotime($row['RegDate']));?></td> 
 								<th>Invoice Date</th> 
-								<td colspan="3"><?php echo $row['invoicedate']?></td> 
+								<td colspan="3"><?php echo date('M d, Y',strtotime($row['invoicedate']));?></td> 
 							</tr> 
 </table> 
 <table class="table table-bordered" width="100%" border="2"> 
@@ -130,13 +130,25 @@ while ($row=mysqli_fetch_array($ret)) { ?>
 <th><?php echo $cnt;?></th>
 <td><?php echo $row['adstitle']?></td>
 <td><?php echo $row['AssignServ']?></td>	
-<td>₱ <?php echo $subtotal=$row['cost']?></td>
+<td>₱ <?php echo number_format($row['cost'],2);?></td>
 </tr>
 <?php 
 $cnt=$cnt+1;
-$gtotal+=$subtotal;
+$gtotal_ads+=$row['cost'];
 $payment = $row['Payment'];
 } ?>
+<tr>
+<th colspan="3" style="text-align:center">Grand Total</th>
+<th>₱ <?php echo number_format($gtotal_ads,2)?></th>
+</tr>
+<tr>
+<th colspan="3" style="text-align:center">Payment</th>
+<th>₱ <?php echo number_format($payment,2)?></th>
+</tr>
+<tr>
+<th colspan="3" style="text-align:center">Change</th>
+<th>₱ <?php echo number_format($payment - $gtotal_ads,2)?></th>
+</tr>
 <?php } else { ?>
 <div class="invoice-2ndtable">
 </div>
@@ -151,28 +163,29 @@ while ($row=mysqli_fetch_array($result)) { ?>
 <th><?php echo $cnt;?></th>
 <td><?php echo $row['ServiceName']?></td>
 <td><?php echo $row['AssignServ']?></td>	
-<td>₱ <?php echo $subtotal=$row['Cost']?></td>
+<td>₱ <?php echo number_format($row['Cost'],2)?></td>
 </tr>
 <?php 
 $cnt=$cnt+1;
-$gtotal+=$subtotal;
+$gtotal+=$row['Cost'];
 $payment = $row['Payment'];
 } ?>
-<?php } ?>
-
-<?php }?>
 <tr>
 <th colspan="3" style="text-align:center">Grand Total</th>
-<th>₱ <?php echo $gtotal?></th>
+<th>₱ <?php echo number_format($gtotal,2)?></th>
 </tr>
 <tr>
 <th colspan="3" style="text-align:center">Payment</th>
-<th>₱ <?php echo $payment?></th>
+<th>₱ <?php echo number_format($payment,2)?></th>
 </tr>
 <tr>
 <th colspan="3" style="text-align:center">Change</th>
-<th>₱ <?php echo $payment - $gtotal?></th>
+<th>₱ <?php echo number_format($payment - $gtotal,2)?></th>
 </tr>
+<?php } ?>
+
+<?php }?>
+
 
 </tr>
 </table>

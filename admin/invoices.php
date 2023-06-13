@@ -63,7 +63,7 @@ while ($row=mysqli_fetch_array($ret)) {
 						 	<th scope="row"><?php echo $cnt;?></th> 
 						 	<td><?php  echo $row['BillingId'];?></td>
 						 	<td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td>
-						 	<td><?php  echo $row['invoicedate'];?></td> 
+						 	<td><?php  echo date('M d, Y',strtotime($row['invoicedate']));?></td> 
 						 		<td><a href="view-invoice.php?invoiceid=<?php  echo $row['BillingId'];?>" class="icon-btn btn btn-primary"><i class="fa fa-eye"></i></a>
 <a href="invoices.php?delid=<?php echo $row['BillingId'];?>" class="icon-btn btn btn-danger" onClick="return confirm('Are you sure you want to delete?')"><i class="fa fa-trash-o"></i></a>
 						 		</td> 

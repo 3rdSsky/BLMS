@@ -7,7 +7,6 @@ if (strlen($_SESSION['bpmsaid']==0)) {
   } else{
 
 
-$i =0;
   ?>
 <!DOCTYPE HTML>
 <html>
@@ -86,10 +85,11 @@ $y2=date("Y",$month2);
 </tr>
 </thead>
 <?php
+$gtotal = 0;
 $ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as lyear,sum(Cost) 
 						as totalprice, tblinvoice2.Service from  
 						tblinvoice2 join servicetry on servicetry.id= tblinvoice2.ServiceId
-						where date(tblinvoice2.PostingDate)  between '$fdate' and '$tdate' and Service='normal' group by lmonth,lyear");
+						where date_format(tblinvoice2.PostingDate, '%Y-%m')  between '$fdate' and '$tdate' and Service='normal' group by lmonth,lyear");
 						$cnt=1;
 						while ($row=mysqli_fetch_array($ret)) {
 ?>
@@ -102,14 +102,14 @@ $ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as
              
                     </tr>
                 <?php
-$fsub_service_total+=$service_total;
+$sub_service_total+=$service_total;
 $cnt++;
 }?>
 <?php
 $ads_ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as lyear,sum(Cost) 
 						as adstotalprice, tblinvoice2.Service from  
 						tblinvoice2 join adstbl on adstbl.id= tblinvoice2.ServiceId 
-						where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' and Service='special' group by lmonth,lyear");
+						where date_format(tblinvoice2.PostingDate, '%Y-%m') between '$fdate' and '$tdate' and Service='special' group by lmonth,lyear");
 while ($ads_row=mysqli_fetch_array($ads_ret)) {
 ?>
               
@@ -121,12 +121,14 @@ while ($ads_row=mysqli_fetch_array($ads_ret)) {
              
                     </tr>
                 <?php
-$sub_ads_+=$ads_total;
+$sub_ads_total+=$ads_total;
 $cnt++;
-}?> 
+}
+$gtotal = $sub_service_total + $sub_ads_total;
+?> 
 <tr>
-                  <td colspan="3" align="center">Total </td>
-              <td><?php  echo $ftotal;?></td>
+                  <td colspan="3" align="right"><strong>Total</strong> </td>
+              <td><strong><?php  echo $gtotal;?></strong></td>
    
                  
                  
@@ -147,10 +149,11 @@ $y2=date("Y",$year2);
 <th>Sales</th>
 </tr>
 </thead>
-<!-- <?php
+ <?php
+ $gtotal_yr = 0;
 $ret=mysqli_query($con,"select year(PostingDate) as lyear,sum(Cost) as totalprice 
 from  tblinvoice2 join servicetry on servicetry.id= 
-tblinvoice2.ServiceId where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' group by lyear");
+tblinvoice2.ServiceId where date_format(tblinvoice2.PostingDate, '%Y-%m') between '$fdate' and '$tdate' and Service='normal' group by lyear");
 
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
@@ -160,16 +163,38 @@ while ($row=mysqli_fetch_array($ret)) {
                 <tr>
                     <td><?php echo $cnt;?></td>
                    <td><?php  echo $row['lyear'];?></td>
-              <td><?php  echo $total=$row['totalprice'];?></td>
+              <td><?php  echo $service_total=$row['totalprice'];?></td>
              
                     </tr>
                 <?php
-$ftotal+=$total;
+$service_total_yr+=$service_total;
 $cnt++;
-}?> -->
+}?> 
+
+<?php
+$ret=mysqli_query($con,"select year(PostingDate) as lyear,sum(Cost) as totalprice 
+from  tblinvoice2 join adstbl on adstbl.id= 
+tblinvoice2.ServiceId where date_format(tblinvoice2.PostingDate, '%Y-%m') between '$fdate' and '$tdate' and Service='special' group by lyear");
+
+while ($row=mysqli_fetch_array($ret)) {
+
+?>
+              
+                <tr>
+                    <td><?php echo $cnt;?></td>
+                   <td><?php  echo $row['lyear'];?></td>
+              <td><?php  echo $ads_total=$row['totalprice'];?></td>
+             
+                    </tr>
+                <?php
+$ads_total_yr+=$ads_total;
+$cnt++;
+}
+$gtotal_yr = $service_total_yr + $ads_total_yr;
+?>
 <tr>
                   <td colspan="2" align="center">Total </td>
-              <td><?php  echo $ftotal;?></td>
+              <td><?php  echo $gtotal_yr;?></td>
    
                  
                  

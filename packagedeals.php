@@ -122,7 +122,7 @@ $query=mysqli_query($con,"insert into bkgtbl(userid,aptnumber,aptdate,apttime,se
                   <div class="card">   
                     <img src="admin/images/<?php echo $row['Image']?>" alt="product" br />  
                     <h4 class="text-center"><?php echo $row["adstitle"]; ?></h4>  
-                    <h4 class="text-center">₱ <?php echo $row["cost"]; ?></h4>  
+                    <h4 class="text-center">₱ <?php echo number_format($row['cost'],2); ?></h4>  
                     <h4 class="text-center"> <?php echo $row["category"]; ?></h4>
                     <button data-id='<?php echo $row['id']; ?>' class="ServicesDescription btn btn-danger" style="margin-bottom: 12px;">Learn More</button>
                     <button data-id='<?php echo $row['id']; ?>'  class="Booknow-ads btn btn-danger">BOOK NOW</button>

@@ -63,7 +63,7 @@ echo "<script>window.location.href='manage-package.php'</script>";
 										<th scope="row"><?php echo $cnt;?></th> 
 										<td><?php  echo $row['adstitle'];?></td>
 										<td><?php  echo $row['adsdescription'];?></td>  
-										<td>₱ <?php  echo $row['cost'];?></td> 
+										<td>₱ <?php  echo number_format($row['cost'],2);?></td> 
 										<td>
 											<a href="edit-packages.php?editid=<?php echo $row['id'];?>" class="icon-btn btn btn-primary"><i class="fa fa-eye"></i></a>
 										 	<a href="manage-package.php?delid=<?php echo $row['id'];?>" class="icon-btn btn btn-danger" onClick="return confirm('Are you sure you want to delete?')"><i class="fa fa-trash-o"></i></a>

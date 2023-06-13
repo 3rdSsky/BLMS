@@ -10,7 +10,7 @@ if($_GET['delid']){
 $sid=$_GET['delid'];
 mysqli_query($con,"delete from tbluser where ID ='$sid'");
 echo "<script>alert('Data Deleted');</script>";
-echo "<script>window.location.href='unreadenq.php'</script>";
+echo "<script>window.location.href='customer-list.php'</script>";
           }
 
   ?>
@@ -50,7 +50,10 @@ while ($row=mysqli_fetch_array($ret)) {
 
 ?>
 
-						 <tr> <th scope="row"><?php echo $cnt;?></th> <td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td> <td><?php  echo $row['MobileNumber'];?></td><td><?php  echo $row['Email'];?></td><td><?php  echo $row['RegDate'];?></td> 
+						 <tr> <th scope="row"><?php echo $cnt;?></th> <td><?php  echo $row['FirstName'];?> 
+						 <?php  echo $row['LastName'];?></td> <td><?php  echo $row['MobileNumber'];?></td>
+						 <td><?php  echo $row['Email'];?></td>
+						 <td><?php  echo date('M d, Y h:i:s A',strtotime($row['RegDate']));?></td> 
 						 	<td> <a href="add-customer-services.php?addid=<?php echo $row['ID'];?>" class="btn btn-primary"><i class="fa fa-book"></i></a>
 <a href="customer-list.php?delid=<?php echo $row['ID'];?>" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')"><i class="fa fa-trash-o"></i></a>
 						 		</td> </tr>   <?php 

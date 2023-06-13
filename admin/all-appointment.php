@@ -72,9 +72,9 @@ while ($row=mysqli_fetch_array($ret)) {
 						 	<td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td>
 						 	<td><?php  echo $row['MobileNumber'];?></td>
 						 	<td><?php  echo $row['servicename'];?></td> 
-						 	<td>₱ <?php  echo $row['cost'];?></td>
-						 	<td><?php  echo $row['aptdate'];?></td> 
-						 	<td><?php  echo $row['apttime'];?></td>
+						 	<td>₱ <?php  echo number_format($row['cost']);?></td>
+						 	<td><?php  echo date('M d, Y',strtotime($row['aptdate']));?></td> 
+						 	<td><?php  echo date('h:i:s A',strtotime($row['apttime']));?></td>
 							 <td><?php echo $row['payment'];?></td>
 						 	<?php if($row['Status']==""){ ?>
 

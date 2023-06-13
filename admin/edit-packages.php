@@ -100,7 +100,7 @@ if(isset($_POST['submit']))
 							 	</div>
 								<div class="form-group"> 
 								 	<label for="exampleInputPassword1">Cost</label> 
-								 	<input type="number" id="cost" name="cost" class="form-control" placeholder="Cost" value="<?php  echo $row['cost'];?>" required="true"> 
+								 	<input type="number" id="cost" name="cost" class="form-control" placeholder="Cost" value="<?php  echo number_format($row['cost'],2);?>" required="true"> 
 								</div>
 							 	<div class="form-group"> 
 								 	<label for="exampleInputPassword1">Image</label>  

@@ -66,8 +66,8 @@ if (strlen($_SESSION['bpmsaid']==0)) {
   }  ?> </p>
 
   
-							 <div class="form-group"> <label for="exampleInputEmail1">From Date</label> <input type="date" class="form-control1" name="fromdate" id="fromdate" value="" required='true'> </div> 
-							 <div class="form-group"> <label for="exampleInputPassword1">To Date</label><input type="date" class="form-control1" name="todate" id="todate" value="" required='true'> </div>
+							 <div class="form-group"> <label for="exampleInputEmail1">From Date</label> <input type="month" class="form-control1" name="fromdate" id="fromdate" value="" required='true'> </div> 
+							 <div class="form-group"> <label for="exampleInputPassword1">To Date</label><input type="month" class="form-control1" name="todate" id="todate" value="" required='true'> </div>
 							 <div class="form-group"> <label for="exampleInputPassword1">Request Type</label><input type="radio" name="requesttype" value="mtwise" checked="true">Month wise
                   <input type="radio" name="requesttype" value="yrwise">Year wise </div>
 							 

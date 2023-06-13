@@ -95,7 +95,7 @@ else{
                                     <hr>
                                     <h5 class="para"><?php  echo $row['ServiceName'];?></h5>
                                     <p class="para "><?php  echo $row['ServiceDescription'];?> </p>
-                                    <p class="para " style="color: hotpink;"> Cost of Service: ₱<?php  echo $row['Cost'];?> </p>
+                                    <p class="para " style="color: hotpink;"> Cost of Service: ₱<?php  echo number_format($row['Cost'],2);?> </p>
                                 </div>
                             </a>
                         </div>

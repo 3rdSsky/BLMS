@@ -55,7 +55,7 @@ $tdate=$_POST['todate'];
 							</thead> <tbody>
 <?php
 $ret=mysqli_query($con,"select distinct tbluser.FirstName,tbluser.LastName,tblinvoice2.BillingId,tblinvoice2.PostingDate from  tbluser   
-	join tblinvoice2 on tbluser.ID=tblinvoice2.UserId  where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate'");
+	join tblinvoice2 on tbluser.ID=tblinvoice2.UserId  where date_format(tblinvoice2.PostingDate, '%Y-%m') between '$fdate' and '$tdate'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
@@ -65,7 +65,7 @@ while ($row=mysqli_fetch_array($ret)) {
 						 	<th scope="row"><?php echo $cnt;?></th> 
 						 	<td><?php  echo $row['BillingId'];?></td>
 						 	<td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td>
-						 	<td><?php  echo $row['PostingDate'];?></td> 
+						 	<td><?php  echo date('M d, Y h:i:s A',strtotime($row['PostingDate']));?></td> 
 						 		<td><a href="view-invoice.php?invoiceid=<?php  echo $row['BillingId'];?>" class="btn btn-primary">View</a></td> 
 
 						  </tr>   <?php 

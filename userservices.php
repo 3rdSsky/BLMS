@@ -116,7 +116,7 @@ else{
                 <div class="card">   
                    <img src="admin/images/<?php echo $row['Image']?>" alt="product" br />  
                    <h4 class="text-center"><?php echo $row["ServiceName"]; ?></h4>  
-                   <h4 class="text-center">₱ <?php echo $row["Cost"]; ?></h4>  
+                   <h4 class="text-center">₱ <?php echo number_format($row['Cost'],2); ?></h4>  
                    <h4 class="text-center"> <?php echo $row["bookingtime"]; ?></h4>
                     <button data-id='<?php echo $row['id']; ?>' class="ServicesDescription btn btn-danger" style="margin-bottom: 12px;">Learn More</button>
                 </div>

@@ -64,7 +64,7 @@ echo "<script>window.location.href='manage-services.php'</script>";
                                		<th scope="row"><?php echo $cnt;?></th> 
                                     <td><?php  echo$row["ServiceName"];?></td>    
                                     <td><?php  echo$row["category"];?></td>  
-                                    <td>₱ <?php  echo$row["Cost"];?></td>  
+                                    <td>₱ <?php  echo number_format($row["Cost"],2);?></td>  
                                     <td><?php  echo$row["bookingtime"];?></td>
                                     <td>
                       <a href="edit-services.php?editid=<?php echo $row['id'];?>" class="icon-btn btn btn-primary"><i class="fa fa-eye"></i></a>

@@ -100,10 +100,10 @@ $(function () {
                         <tr>
                             <td><?php echo $cnt;?></td>
                             <td><?php echo $row['aptnumber'];?></td>
-                            <td><p> <?php echo $row['aptdate']?> </p></td> 
-                            <td><?php echo $row['apttime']?></td>
+						 	<td><?php  echo date('M d, Y',strtotime($row['aptdate']));?></td> 
+						 	<td><?php  echo date('h:i:s A',strtotime($row['apttime']));?></td>
                             <td><?php echo $row['servicename'];?></td>
-                            <td>₱ <?php echo $row['cost'];?></td>
+                            <td>₱ <?php  echo number_format($row['cost']);?></td>
                             <td><?php echo $row['payment'];?></td>  
                             <td><?php $status=$row['Status'];
                                 if($status==''){

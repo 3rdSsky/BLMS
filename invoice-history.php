@@ -99,7 +99,7 @@ $cnt=1;
                             <td><?php  echo $row['BillingId'];?></td>
                             <td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td>
                             <td><?php  echo $row['MobileNumber'];?></td>
-                            <td><?php  echo $row['PostingDate'];?></td> 
+                            <td><?php  echo date('M d, Y',strtotime($row['PostingDate']));?></td> 
                                 <td><a href="view-invoice.php?invoiceid=<?php  echo $row['BillingId'];?>" class="btn btn-info"><i class="fa fa-eye"></i></a></td> 
 
                           </tr><?php $cnt=$cnt+1; } ?>
