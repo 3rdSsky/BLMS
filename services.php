@@ -87,13 +87,15 @@ else{
     while($row=mysqli_fetch_array($sql))
     {?>
                         <div class="services-box col-lg-4 col-md-6 col-sm-6 propClone">
-                            <img src="admin/images/<?php echo $row['Image']?>" alt="product" height="200" width="400" class="img-responsive about-me">
-                            <div class="about-grids ">
-                                <hr>
-                                <h5 class="para"><?php  echo $row['ServiceName'];?></h5>
-                                <p class="para "><?php  echo $row['ServiceDescription'];?> </p>
-                                <p class="para " style="color: hotpink;"> Cost of Service: ₱<?php  echo $row['Cost'];?> </p>
-                            </div>
+                            <a href="login.php?id=<?php echo $row['category']?>">
+                                <img src="admin/images/<?php echo $row['Image']?>" alt="product" height="200" width="400" class="img-responsive about-me">
+                                <div class="about-grids ">
+                                    <hr>
+                                    <h5 class="para"><?php  echo $row['ServiceName'];?></h5>
+                                    <p class="para "><?php  echo $row['ServiceDescription'];?> </p>
+                                    <p class="para " style="color: hotpink;"> Cost of Service: ₱<?php  echo $row['Cost'];?> </p>
+                                </div>
+                            </a>
                         </div>
                         <br>
                         <?php $cnt=$cnt+1;

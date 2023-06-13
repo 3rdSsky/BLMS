@@ -10798,6 +10798,7 @@ h3.color-white {
   background: rgb(242, 242, 242);
   box-sizing: border-box!important;
   box-shadow: 10px 20px 50px;
+  display: "";
 }
 
 .first-ads-dev img{

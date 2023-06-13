@@ -17,18 +17,73 @@ if(isset($_POST['login']))
                 } else{
                     echo "<script>alert('Invalid Details.');</script>";
                 }
-    }else{
+    } elseif($id=='Beauty Services'){
         $emailcon=$_POST['emailcont'];
         $password=md5($_POST['password']);
         $query=mysqli_query($con,"select ID from tbluser where  (Email='$emailcon' || MobileNumber='$emailcon') && Password='$password' ");
         $ret=mysqli_fetch_array($query);
         if($ret>0){
             $_SESSION['bpmsuid']=$ret['ID'];
-            header('location:userservices.php');
+            header('location:userservices.php?id=Beauty Services');
         } else{
             echo "<script>alert('Invalid Details.');</script>";
         }
-  }
+  } elseif($id=='Gluta Drip'){
+    $emailcon=$_POST['emailcont'];
+    $password=md5($_POST['password']);
+    $query=mysqli_query($con,"select ID from tbluser where  (Email='$emailcon' || MobileNumber='$emailcon') && Password='$password' ");
+    $ret=mysqli_fetch_array($query);
+    if($ret>0){
+        $_SESSION['bpmsuid']=$ret['ID'];
+        header('location:userservices.php?id=Gluta Drip');
+    } else{
+        echo "<script>alert('Invalid Details.');</script>";
+    }
+} elseif($id=='Gluta Services'){
+    $emailcon=$_POST['emailcont'];
+    $password=md5($_POST['password']);
+    $query=mysqli_query($con,"select ID from tbluser where  (Email='$emailcon' || MobileNumber='$emailcon') && Password='$password' ");
+    $ret=mysqli_fetch_array($query);
+    if($ret>0){
+        $_SESSION['bpmsuid']=$ret['ID'];
+        header('location:userservices.php?id=Gluta Services');
+    } else{
+        echo "<script>alert('Invalid Details.');</script>";
+    }
+} elseif($id=='Elite Services'){
+    $emailcon=$_POST['emailcont'];
+    $password=md5($_POST['password']);
+    $query=mysqli_query($con,"select ID from tbluser where  (Email='$emailcon' || MobileNumber='$emailcon') && Password='$password' ");
+    $ret=mysqli_fetch_array($query);
+    if($ret>0){
+        $_SESSION['bpmsuid']=$ret['ID'];
+        header('location:userservices.php?id=Elite Services');
+    } else{
+        echo "<script>alert('Invalid Details.');</script>";
+    }
+} elseif($id=='Slimming Services'){
+    $emailcon=$_POST['emailcont'];
+    $password=md5($_POST['password']);
+    $query=mysqli_query($con,"select ID from tbluser where  (Email='$emailcon' || MobileNumber='$emailcon') && Password='$password' ");
+    $ret=mysqli_fetch_array($query);
+    if($ret>0){
+        $_SESSION['bpmsuid']=$ret['ID'];
+        header('location:userservices.php?id=Slimming Services');
+    } else{
+        echo "<script>alert('Invalid Details.');</script>";
+    }
+} else {
+    $emailcon=$_POST['emailcont'];
+    $password=md5($_POST['password']);
+    $query=mysqli_query($con,"select ID from tbluser where  (Email='$emailcon' || MobileNumber='$emailcon') && Password='$password' ");
+    $ret=mysqli_fetch_array($query);
+    if($ret>0){
+        $_SESSION['bpmsuid']=$ret['ID'];
+        header('location:userservices.php');
+    } else{
+        echo "<script>alert('Invalid Details.');</script>";
+    }
+}
 
     }
 ?>

@@ -78,7 +78,7 @@ $(function () {
                             <li>Collagen</li>
                             <li>Vitamin C</li>
                         </ul>
-                        <a href="services.php" class="learn btn">Learn More</a>
+                        <a href="login.php?id=Gluta Services" class="learn btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@ $(function () {
                             <li>Korean Glow Drip "The Belo Drip"</li>
                             <li>Beauty Infusion Drip</li>
                         </ul>
-                        <a href="services.php" class="learn btn">Learn More</a>
+                        <a href="login.php?id=Gluta Drip" class="learn btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@ $(function () {
                             <li>Double Chin Reduction</li>
                             <li>Mesotherapy</li>
                         </ul>
-                        <a href="services.php" class="learn btn">Learn More</a>
+                        <a href="login.php?id=Slimming Services" class="learn btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -156,7 +156,7 @@ $(function () {
                             <li>Rejuvenating Facial w/ Microdermabrasion</li>
                             <li>Microneedling</li>
                         </ul>
-                        <a href="services.php" class="learn btn">Learn More</a>
+                        <a href="login.php?id=Beauty Services" class="learn btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -191,7 +191,7 @@ $(function () {
                             <li>Carbon Laser</li>
                             <li>Oxygeneo w/ Diamond Peel</li>
                         </ul>
-                        <a href="services.php" class="learn btn">Learn More</a>
+                        <a href="login.php?id=Elite Services" class="learn btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -210,6 +210,7 @@ $(function () {
 	window.onscroll = function () {
 		scrollFunction()
 	};
+    
 
 	function scrollFunction() {
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {

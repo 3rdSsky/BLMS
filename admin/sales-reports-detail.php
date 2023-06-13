@@ -85,10 +85,12 @@ $y2=date("Y",$month2);
 </tr>
 </thead>
 <?php
-$ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as lyear,sum(Cost) as totalprice from  tblinvoice2 join servicetry on servicetry.id= tblinvoice2.ServiceId where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' group by lmonth,lyear");
+$ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as lyear,sum(Cost) 
+						as totalprice from  
+						tblinvoice2 join servicetry on servicetry.id= tblinvoice2.ServiceId 
+						where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' group by lmonth,lyear");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
-
 ?>
               
                 <tr>
@@ -101,6 +103,25 @@ while ($row=mysqli_fetch_array($ret)) {
 $ftotal+=$total;
 $cnt++;
 }?>
+<!-- <?php
+// $ads_ret=mysqli_query($con,"select month(PostingDate) as lmonth,year(PostingDate) as lyear,sum(Cost) 
+// 						as adstotalprice from  
+// 						tblinvoice2 join adstbl on adstbl.id= tblinvoice2.ServiceId 
+// 						where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' group by lmonth,lyear");
+// $cnt=1;
+// while ($ads_row=mysqli_fetch_array($ads_ret)) {
+// ?>
+              
+//                 <tr>
+//                     <td><?php echo $cnt;?></td>
+//                   <td><?php  echo $row['lmonth']."/".$row['lyear'];?></td>
+//               <td><?php  echo $total=$ads_row['adstotalprice'];?></td>
+             
+//                     </tr>
+//                 <?php
+// $ftotal+=$total;
+// $cnt++;
+}?> -->
 <tr>
                   <td colspan="2" align="center">Total </td>
               <td><?php  echo $ftotal;?></td>
@@ -125,7 +146,9 @@ $y2=date("Y",$year2);
 </tr>
 </thead>
 <?php
-$ret=mysqli_query($con,"select year(PostingDate) as lyear,sum(Cost) as totalprice from  tblinvoice2 join servicetry on servicetry.id= tblinvoice2.ServiceId where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' group by lyear");
+$ret=mysqli_query($con,"select year(PostingDate) as lyear,sum(Cost) as totalprice 
+from  tblinvoice2 join servicetry on servicetry.id= 
+tblinvoice2.ServiceId where date(tblinvoice2.PostingDate) between '$fdate' and '$tdate' group by lyear");
 
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {

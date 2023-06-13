@@ -30,19 +30,21 @@ if (strlen($_SESSION['bpmsaid']==0)) {
 			
 				<div class="row calender widget-shadow">
 					<div class="row-one">
-					<div class="col-md-4 widget">
-						<?php $query1=mysqli_query($con,"Select * from tbluser");
-$totalcust=mysqli_num_rows($query1);
-?>
-						<div class="stats-left ">
-							<h5>Total</h5>
-							<h4>Customer</h4>
-						</div>
-						<div class="stats-right">
-							<label> <?php echo $totalcust;?></label>
-						</div>
-						<div class="clearfix"> </div>	
-					</div>
+						<div class="col-md-4 widget">
+							<a href="customer-list.php">
+							<?php $query1=mysqli_query($con,"Select * from tbluser");
+									$totalcust=mysqli_num_rows($query1);
+							?>
+							<div class="stats-left ">
+								<h5>Total</h5>
+								<h4>Customer</h4>
+							</div>
+							<div class="stats-right">
+								<label> <?php echo $totalcust;?></label>
+							</div>
+							<div class="clearfix"> </div>	
+							</a>
+							</div>
 					<!--
 					<div class="col-md-4 widget states-mdl">
 						<?php $query2=mysqli_query($con,"Select * from bkgtbl");
@@ -93,9 +95,10 @@ $totalrejapt=mysqli_num_rows($query4);
 -->
 					
 					<div class="col-md-4 widget states-mdl">
+						<a href="manage-services.php">
 						<?php $query5=mysqli_query($con,"Select * from  servicetry");
-$totalser=mysqli_num_rows($query5);
-?>
+								$totalser=mysqli_num_rows($query5);
+						?>
 						<div class="stats-left">
 							<h5>Total</h5>
 							<h4>Services</h4>
@@ -103,13 +106,15 @@ $totalser=mysqli_num_rows($query5);
 						<div class="stats-right">
 							<label> <?php echo $totalser;?></label>
 						</div>
-						<div class="clearfix"> </div>	
+						<div class="clearfix"> </div>
+						</a>	
 					</div>
 
 					<div class="col-md-4 widget states-last">
+						<a href="manage-package.php">
 						<?php $query10=mysqli_query($con,"Select * from  adstbl");
-$totaldeals=mysqli_num_rows($query10);
-?>
+								$totaldeals=mysqli_num_rows($query10);
+						?>
 						<div class="stats-left">
 							<h5>Total</h5>
 							<h4>Package or Deals</h4>
@@ -117,7 +122,8 @@ $totaldeals=mysqli_num_rows($query10);
 						<div class="stats-right">
 							<label> <?php echo $totaldeals;?></label>
 						</div>
-						<div class="clearfix"> </div>	
+						<div class="clearfix"> </div>
+						</a>	
 					</div>
 					<!-- Sales
 					
@@ -139,9 +145,9 @@ $sub_service_td+=$service_todays_sale;
 $query11=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, adstbl.adstitle, adstbl.cost
 from tblinvoice2 
  join adstbl on adstbl.id=tblinvoice2.ServiceId where date(PostingDate)=CURDATE() and Service='special';");
-while($row=mysqli_fetch_array($query11))
+while($row11=mysqli_fetch_array($query11))
 {
-$ads_today_sale=$row['cost'];
+$ads_today_sale=$row11['cost'];
 $sub_ads_td+=$ads_today_sale;
 }
 $todysale = $sub_service_td + $sub_ads_td;
@@ -176,13 +182,23 @@ endif;
 //Yesterday's sale
  $query7=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, servicetry.Cost
  from tblinvoice2 
-  join servicetry  on servicetry.id=tblinvoice2.ServiceId where date(PostingDate)=CURDATE()-1;");
+  join servicetry  on servicetry.id=tblinvoice2.ServiceId where date(PostingDate)=CURDATE()-1 and Service='normal';");
 while($row7=mysqli_fetch_array($query7))
 {
-$yesterdays_sale=$row7['Cost'];
-$yesterdaysale+=$yesterdays_sale;
+$service_yesterdays_sale=$row7['Cost'];
+$sub_service_ys+=$service_yesterdays_sale;
 
 }
+
+$query12=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, adstbl.cost
+from tblinvoice2 
+ join adstbl  on adstbl.id=tblinvoice2.ServiceId where date(PostingDate)=CURDATE()-1 and Service='special';");
+while($row12=mysqli_fetch_array($query12))
+{
+$ads_yesterdays_sale=$row12['cost'];
+$sub_ads_ys+=$ads_yesterdays_sale;
+}
+$yesterdaysale = $sub_ads_ys + $sub_service_ys;
  ?>
 						<div class="stats-left ">
 							<h5>Yesterday</h5>
@@ -204,13 +220,23 @@ endif;
 //Last Sevendays Sale
  $query8=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, servicetry.Cost
  from tblinvoice2 
-  join servicetry  on servicetry.id=tblinvoice2.ServiceId where date(PostingDate)>=(DATE(NOW()) - INTERVAL 7 DAY);");
+  join servicetry  on servicetry.id=tblinvoice2.ServiceId where date(PostingDate)>=(DATE(NOW()) - INTERVAL 7 DAY) and Service='normal';");
 while($row8=mysqli_fetch_array($query8))
 {
-$sevendays_sale=$row8['Cost'];
-$tseven+=$sevendays_sale;
-
+$service_sevendays_sale=$row8['Cost'];
+$sub_service_LS+=$service_sevendays_sale;
 }
+
+$query13=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, adstbl.cost
+from tblinvoice2 
+ join adstbl  on adstbl.id=tblinvoice2.ServiceId where date(PostingDate)>=(DATE(NOW()) - INTERVAL 7 DAY) and Service='special';");
+while($row13=mysqli_fetch_array($query13))
+{
+$ads_sevendays_sale=$row13['cost'];
+$ads_sub_LS+=$ads_sevendays_sale;
+}
+
+$tseven = $sub_service_LS + $ads_sub_LS;
  ?>
 						<div class="stats-left">
 							<h5>Last Sevendays</h5>
@@ -232,13 +258,22 @@ endif;?></label>
 //Total Sale
  $query9=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, servicetry.Cost
  from tblinvoice2 
-  join servicetry  on servicetry.id=tblinvoice2.ServiceId");
+  join servicetry  on servicetry.id=tblinvoice2.ServiceId and Service='normal'");
 while($row9=mysqli_fetch_array($query9))
 {
-$total_sale=$row9['Cost'];
-$totalsale+=$total_sale;
-
+$service_total_sale=$row9['Cost'];
+$sub_service_gtotal+=$service_total_sale;
 }
+
+$query14=mysqli_query($con,"select tblinvoice2.ServiceId as ServiceId, adstbl.cost
+from tblinvoice2 
+ join adstbl  on adstbl.id=tblinvoice2.ServiceId and Service='special'");
+while($row14=mysqli_fetch_array($query14))
+{
+$ads_total_sale=$row14['cost'];
+$sub_ads_gtotal+=$ads_total_sale;
+}
+$totalsale = $sub_service_gtotal + $sub_ads_gtotal;
  ?>
 						<div class="stats-left">
 							<h5>Total</h5>
@@ -267,7 +302,7 @@ endif;
 					<div class="dropdown">
   						<button class="btn btn-secondary" onClick="showsale()">
     					Sales</button>
-						<button class="btn btn-secondary" onClick="showcustomer()">Customer</button>
+						<button class="btn btn-secondary" onClick="showcustomer()">Appointment</button>
   						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
 						 <label for="exampleInputEmail1"></label> 
 						 <input type="date" class="form-control1" name="fromdate" id="fromdate" value="" required='true'> 
